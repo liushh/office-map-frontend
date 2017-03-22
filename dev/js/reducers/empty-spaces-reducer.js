@@ -1,3 +1,5 @@
+import {updateArrayElement} from '../utils/reducer-util'
+
 const row = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 const matrix = [];
 for (var i = 0; i < 20; i++) {
@@ -26,18 +28,6 @@ matrix.forEach(function(row, rowIndex) {
     initialState.push(newStateElement);
   })
 });
-
-function updateArrayElement(array, element) {
-  return array.map((item) => {
-    if (item.id !== element.id) {
-      return item;
-    }
-    return {
-      ...item,
-      ...element
-    }
-  });
-}
 
 export default function (state=initialState, action) {
 

@@ -1,6 +1,10 @@
 import React, {Component} from 'react';
 
 class DeskSpaceButton extends Component {
+  
+  onButtonClicked() {
+    this.props.onButtonClicked(this.props.item);
+  }
 
   render() {
     const constStyle = {
@@ -10,13 +14,14 @@ class DeskSpaceButton extends Component {
       top: this.props.top,
       left: this.props.left,
       borderRadius: 0,
-      backgroundColor: 'white',
+      backgroundColor: this.props.backgroundColor,
       borderColor: '#808080',
       borderWidth: 1,
       borderStyle: 'solid'
     };
     return (
-      <div style={constStyle}></div>
+      <div style={constStyle}
+           onClick={() => this.props.onButtonClicked(this.props.item)}></div>
     );
   }  
 }

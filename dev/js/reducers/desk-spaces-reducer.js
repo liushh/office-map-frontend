@@ -30,20 +30,6 @@ export default function (state=[], action) {
         ...state.slice(index)
       ];
       break;
-    // case 'UNSELECT_EMPTY_SPACE':
-    //   // var index = state.indexOf(action.payload);
-    //   var index = 0;
-    //   state.forEach((item, index) => {
-    //     if (item.id === action.payload.id) {
-    //       return index;
-    //     }
-    //   })
-    //   console.log('unselected index = ', index);
-    //   return [
-    //     ...state.slice(0, index),
-    //     ...state.slice(index + 1)
-    // ];
-    //   break;
   }
   return state;
 }

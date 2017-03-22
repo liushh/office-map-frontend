@@ -24,3 +24,21 @@ export const createNewDeskSpace = (emptySpace1, emptySpace2) => {
     payload: [emptySpace1, emptySpace2]
   };
 };
+
+export const selectDeskSpace = (deskSpace) => {
+  console.log('You selected an desk space: ', deskSpace.id);
+  
+  return {
+    type: 'SELECT_DESK_SPACE',
+    payload: deskSpace
+  };
+};
+
+export const unselectDeskSpace = (deskSpace) => {
+  console.log('You unslected an desk space: ', deskSpace.id);
+  
+  return {
+    type: 'UNSELECT_DESK_SPACE',
+    payload: deskSpace
+  };
+};
