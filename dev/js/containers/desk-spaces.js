@@ -1,0 +1,39 @@
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import DeskSpaceButton from '../components/DeskSpaceButton'
+
+class DeskSpaces extends Component {
+
+  createDeskSpaceButtons() {
+    return this.props.deskSpaces.map((deskSpace) => {
+      return (
+        <DeskSpaceButton key={deskSpace.id}
+                         top={deskSpace.top}
+                         left={deskSpace.left}/>
+      );
+    });
+  }
+
+  render() {
+    // console.log('this.deskSpaces = ', this.props);
+    return (
+      <div>
+        DESKS
+        {this.createDeskSpaceButtons()}
+      </div>
+    );
+  }  
+}
+
+function mapStateToProps(state) {
+  // console.log('state = ', state);
+  return {
+    deskSpaces: state.deskSpaces
+  };
+}
+
+// function matchDispatchToProps(dispatch) {
+//   return bindActionCreators({emptySpaces: selectUser}, dispatch);
+// }
+
+export default connect(mapStateToProps)(DeskSpaces);
