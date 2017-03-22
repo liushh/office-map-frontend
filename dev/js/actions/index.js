@@ -25,6 +25,15 @@ export const createNewDeskSpace = (emptySpace1, emptySpace2) => {
   };
 };
 
+export const deleteDeskSpace = (deskSpace) => {
+  console.log('You are deleting a desk space: ', deskSpace);
+  
+  return {
+    type: 'DELETE_DESK_SPACE',
+    payload: deskSpace
+  };
+};
+
 export const updateDeskSpace = (deskSpace) => {
   console.log('You are updating a new deskspace: ', deskSpace);
   
@@ -43,11 +52,11 @@ export const selectDeskSpace = (deskSpace) => {
   };
 };
 
-export const unselectDeskSpace = (deskSpace) => {
-  console.log('You unslected an desk space: ', deskSpace.id);
+export const unselectDeskSpace = () => {
+  console.log('You unslected the desk space');
   
   return {
     type: 'UNSELECT_DESK_SPACE',
-    payload: deskSpace
+    payload: null
   };
 };

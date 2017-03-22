@@ -2,8 +2,32 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {updateDeskSpace} from '../actions/index';
+import {unselectDeskSpace} from '../actions/index';
+import {deleteDeskSpace} from '../actions/index';
 
 class DeskInfoPopover extends Component {
+
+  componentWillMount() {
+     document.addEventListener("keydown", (event) => this.handleKeydown(event), false);
+  }
+
+  componentWillUnmount() {
+     document.removeEventListener("keydown", (event) => this.handleKeydown(event));
+  }
+
+  handleKeydown(event) {
+    console.log('event.keyCode = ', event.keyCode);
+    if (this.props.selectedDeskSpace != null) { 
+      if (event.keyCode === 8) {
+        console.log('delete pressed!!!!!!!!!!!!!!!!');
+        this.props.deleteDeskSpace(this.props.selectedDeskSpace);
+        this.props.unselectDeskSpace();
+      } else if (event.keyCode === 13 || event.keyCode === 27) {
+        console.log('close popover');
+        this.props.unselectDeskSpace();
+      }
+    }
+  }
 
   onNameChanged(event) {
     this.props.selectedDeskSpace.ownerName = event.target.value;
@@ -21,7 +45,7 @@ class DeskInfoPopover extends Component {
       top: 50,
       left: 50,
       borderRadius: 0,
-      backgroundColor: 'red',
+      backgroundColor: 'grey',
       borderColor: '#808080',
       borderWidth: 1,
       borderStyle: 'solid'
@@ -46,7 +70,9 @@ function mapStateToProps(state) {
 
 function matchDispatchToProps(dispatch) {
   var actionCreators = {
-    updateDeskSpace: updateDeskSpace
+    updateDeskSpace: updateDeskSpace,
+    unselectDeskSpace: unselectDeskSpace,
+    deleteDeskSpace: deleteDeskSpace
   };
   return bindActionCreators(actionCreators, dispatch);
 }

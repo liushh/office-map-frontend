@@ -20,7 +20,7 @@ export default function (state=[], action) {
       return [
         ...state.slice(0, index),
         ...state.slice(index + 1)
-    ];
+      ];
       break;
   }
   return state;

@@ -12,7 +12,7 @@ class DeskSpaces extends Component {
         this.props.selectedDeskSpace.id != deskSpace.id) {
       this.props.selectDeskSpace(deskSpace);
     } else {
-      this.props.unselectDeskSpace(deskSpace);
+      this.props.unselectDeskSpace();
     }
   }
 

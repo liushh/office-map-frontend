@@ -31,6 +31,20 @@ export default function (state=[], action) {
         ...state.slice(index)
       ];
       break;
+    case 'DELETE_DESK_SPACE':
+      var index = 0;
+      state.forEach((item, i) => {
+        if (item.id === action.payload.id) {
+          index = i;
+          return;
+        }
+      })
+      console.log('deleting a desk space = ', action.payload);
+      return [
+        ...state.slice(0, index),
+        ...state.slice(index + 1)
+      ];
+      break;
     case 'UPDATE_DESK_SPACE':
       console.log('update selected deskSpace.name = ', action.payload.ownerName);
       return updateArrayElement(state, action.payload);
