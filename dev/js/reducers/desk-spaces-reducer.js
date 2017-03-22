@@ -1,3 +1,4 @@
+import {updateArrayElement} from '../utils/reducer-util'
 
 function createNewDeskSpace(emptySpace1, emptySpace2) {
   var deskSpace = {
@@ -10,7 +11,7 @@ function createNewDeskSpace(emptySpace1, emptySpace2) {
     isVertical: (emptySpace1.left === emptySpace2.left),
 
     ownerId: '',
-    owerName: ''
+    ownerName: 'free'
   };
 
   return deskSpace;
@@ -29,6 +30,10 @@ export default function (state=[], action) {
         deskSpace,
         ...state.slice(index)
       ];
+      break;
+    case 'UPDATE_DESK_SPACE':
+      console.log('update selected deskSpace.name = ', action.payload.ownerName);
+      return updateArrayElement(state, action.payload);
       break;
   }
   return state;

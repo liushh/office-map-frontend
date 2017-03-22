@@ -25,6 +25,15 @@ export const createNewDeskSpace = (emptySpace1, emptySpace2) => {
   };
 };
 
+export const updateDeskSpace = (deskSpace) => {
+  console.log('You are updating a new deskspace: ', deskSpace);
+  
+  return {
+    type: 'UPDATE_DESK_SPACE',
+    payload: deskSpace
+  };
+};
+
 export const selectDeskSpace = (deskSpace) => {
   console.log('You selected an desk space: ', deskSpace.id);
   

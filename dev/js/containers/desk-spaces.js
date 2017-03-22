@@ -19,12 +19,12 @@ class DeskSpaces extends Component {
   createDeskSpaceButtons() {
     var selectedDeskSpace = this.props.selectedDeskSpace;
     return this.props.deskSpaces.map((deskSpace) => {
-      var backgroundColor = 'white';
-      if (selectedDeskSpace && selectedDeskSpace.id === deskSpace.id) {
-        backgroundColor = '#FA8072';
-      } 
+      var isSelected = selectedDeskSpace && selectedDeskSpace.id === deskSpace.id;
+      var backgroundColor = isSelected ? '#FA8072' : 'white';
+    
       return (
-        <DeskSpaceButton item={deskSpace}
+        <DeskSpaceButton deskSpace={deskSpace}
+                         isSelected={isSelected}
                          key={deskSpace.id}
                          top={deskSpace.top}
                          left={deskSpace.left} 

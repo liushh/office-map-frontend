@@ -80,7 +80,6 @@ function mapStateToProps(state) {
 }
 
 function matchDispatchToProps(dispatch) {
-  // console.log('selectEmptySpace  =', selectEmptySpace);
   var actionCreators = {
     selectEmptySpace: selectEmptySpace,
     unselectEmptySpace: unselectEmptySpace,

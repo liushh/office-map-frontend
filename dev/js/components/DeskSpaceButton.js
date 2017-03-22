@@ -17,11 +17,18 @@ class DeskSpaceButton extends Component {
       backgroundColor: this.props.backgroundColor,
       borderColor: '#808080',
       borderWidth: 1,
-      borderStyle: 'solid'
+      borderStyle: 'solid',
+
+      whiteSpace: 'nowrap',
+      overflow: 'hidden',
+      textOverflow: 'ellipsis'
     };
     return (
       <div style={constStyle}
-           onClick={() => this.props.onButtonClicked(this.props.item)}></div>
+          onClick={() => this.props.onButtonClicked(this.props.deskSpace)}>
+        {this.props.deskSpace.ownerName}
+      </div>
+      
     );
   }  
 }
