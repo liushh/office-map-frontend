@@ -7,9 +7,11 @@ class DeskSpaces extends Component {
   createDeskSpaceButtons() {
     return this.props.deskSpaces.map((deskSpace) => {
       return (
-        <DeskSpaceButton key={deskSpace.id}
+        <DeskSpaceButton item={deskSpace}
+                         key={deskSpace.id}
                          top={deskSpace.top}
-                         left={deskSpace.left}/>
+                         left={deskSpace.left} 
+                         isVertical={deskSpace.isVertical}/>
       );
     });
   }
@@ -26,7 +28,7 @@ class DeskSpaces extends Component {
 }
 
 function mapStateToProps(state) {
-  // console.log('state = ', state);
+  console.log('deskSpaces = ', state.deskSpaces);
   return {
     deskSpaces: state.deskSpaces
   };

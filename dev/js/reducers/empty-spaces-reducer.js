@@ -3,9 +3,6 @@ const matrix = [];
 for (var i = 0; i < 20; i++) {
   matrix.push(row);
 }
-// console.log('matrix = ', matrix);
-
-
 const initialState = [];
 
 const initialTop = 300;
@@ -45,11 +42,11 @@ function updateArrayElement(array, element) {
 export default function (state=initialState, action) {
 
   switch(action.type) {
-    case 'EMPTY_SPACE_SELECTED':
+    case 'SELECT_EMPTY_SPACE':
       action.payload.isSelected = true;
       return updateArrayElement(state, action.payload);
       break;
-    case 'EMPTY_SPACE_UNSELECTED':
+    case 'UNSELECT_EMPTY_SPACE':
       action.payload.isSelected = false;
       return updateArrayElement(state, action.payload);
       break;

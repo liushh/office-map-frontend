@@ -1,7 +1,7 @@
 export default function (state=[], action) {
 
   switch(action.type) {
-    case 'EMPTY_SPACE_SELECTED':
+    case 'SELECT_EMPTY_SPACE':
       var index = state.length;
       return [
         ...state.slice(0, index),
@@ -9,15 +9,14 @@ export default function (state=[], action) {
         ...state.slice(index)
       ];
       break;
-    case 'EMPTY_SPACE_UNSELECTED':
-      // var index = state.indexOf(action.payload);
+    case 'UNSELECT_EMPTY_SPACE':
       var index = 0;
-      state.forEach((item, index) => {
+      state.forEach((item, i) => {
         if (item.id === action.payload.id) {
-          return index;
+          index = i;
         }
       })
-      console.log('unselected index = ', index);
+      console.log('unselected empty space = ', action.payload);
       return [
         ...state.slice(0, index),
         ...state.slice(index + 1)
