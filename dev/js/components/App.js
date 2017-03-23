@@ -7,7 +7,6 @@ import DeskInfoPopover from '../containers/desk-info-popover'
 
 const App = () => (
   <div>
-    <h2>Hello Guadalajara</h2>
     <EmptySpaces/>
     <DeskSpaces/>
     <DeskInfoPopover/>

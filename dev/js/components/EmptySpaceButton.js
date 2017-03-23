@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import {CONSTANTS} from '../constants';
+
 
 class EmptySpaceButton extends Component {
 
@@ -9,8 +11,8 @@ class EmptySpaceButton extends Component {
   render() {
     const constStyle = {
       position: 'absolute',
-      width: 25,
-      height: 25,
+      width: CONSTANTS.EMPTY_SPACE_SIZE,
+      height: CONSTANTS.EMPTY_SPACE_SIZE,
       top: this.props.top,
       left: this.props.left,
       borderRadius: 0,

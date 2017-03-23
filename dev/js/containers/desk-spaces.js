@@ -39,7 +39,6 @@ class DeskSpaces extends Component {
     // console.log('this.deskSpaces = ', this.props);
     return (
       <div>
-        DESKS
         {this.createDeskSpaceButtons()}
       </div>
     );

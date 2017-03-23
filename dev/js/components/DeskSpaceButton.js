@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {CONSTANTS} from '../constants';
 
 class DeskSpaceButton extends Component {
   
@@ -9,8 +10,8 @@ class DeskSpaceButton extends Component {
   render() {
     const constStyle = {
       position: 'absolute',
-      width: this.props.isVertical ? 25 : 50,
-      height: this.props.isVertical ? 50 : 25,
+      width: this.props.isVertical ? CONSTANTS.EMPTY_SPACE_SIZE : CONSTANTS.EMPTY_SPACE_SIZE * 2,
+      height: this.props.isVertical ? CONSTANTS.EMPTY_SPACE_SIZE * 2 : CONSTANTS.EMPTY_SPACE_SIZE,
       top: this.props.top,
       left: this.props.left,
       borderRadius: 0,

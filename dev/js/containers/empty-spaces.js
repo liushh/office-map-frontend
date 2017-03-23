@@ -5,6 +5,7 @@ import EmptySpaceButton from '../components/EmptySpaceButton'
 import {selectEmptySpace} from '../actions/index';
 import {unselectEmptySpace} from '../actions/index';
 import {createNewDeskSpace} from '../actions/index';
+import {CONSTANTS} from '../constants';
 
 
 class EmptySpaces extends Component {
@@ -24,8 +25,8 @@ class EmptySpaces extends Component {
 
   areTwoSpacesConnected(space1, space2) {
     return (
-      (space1.top === space2.top && Math.abs(space1.left - space2.left) === 25) ||
-      (space1.left === space2.left && Math.abs(space1.top - space2.top) === 25)
+      (space1.top === space2.top && Math.abs(space1.left - space2.left) === CONSTANTS.EMPTY_SPACE_SIZE) ||
+      (space1.left === space2.left && Math.abs(space1.top - space2.top) === CONSTANTS.EMPTY_SPACE_SIZE)
     );
   }
 
