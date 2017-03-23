@@ -9,24 +9,15 @@ class DeskSpaceButton extends Component {
 
   render() {
     const constStyle = {
-      position: 'absolute',
       width: this.props.isVertical ? CONSTANTS.EMPTY_SPACE_SIZE : CONSTANTS.EMPTY_SPACE_SIZE * 2,
       height: this.props.isVertical ? CONSTANTS.EMPTY_SPACE_SIZE * 2 : CONSTANTS.EMPTY_SPACE_SIZE,
       top: this.props.top,
       left: this.props.left,
-      borderRadius: 0,
       backgroundColor: this.props.backgroundColor,
-      borderColor: '#808080',
-      borderWidth: 1,
-      borderStyle: 'solid',
-
-      whiteSpace: 'nowrap',
-      overflow: 'hidden',
-      textOverflow: 'ellipsis'
     };
 
     return (
-      <div style={constStyle}
+      <div className='map-item-button' style={constStyle}
           onClick={() => this.props.onButtonClicked(this.props.deskSpace)}>
         {this.props.deskSpace.ownerName}
       </div>

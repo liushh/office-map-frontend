@@ -1,0 +1,11 @@
+.map-item-button {
+  position: absolute;
+  border-radius: 0;
+  border-color: #808080;
+  border-width: 1px;
+  border-style: solid;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
