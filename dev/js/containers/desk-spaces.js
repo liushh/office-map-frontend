@@ -1,11 +1,19 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import DeskSpaceButton from '../components/DeskSpaceButton'
+import DeskSpaceButton from '../components/DeskSpaceButton';
 import {selectDeskSpace} from '../actions/index';
 import {unselectDeskSpace} from '../actions/index';
+import {initDeskSpaceState} from '../actions/index';
+import {fetchDeskSpaceState} from '../utils/reducer-util';
+
 
 class DeskSpaces extends Component {
+
+  componentDidMount() {
+    console.log('this.props.initDeskSpaceState = ', this.props.initDeskSpaceState);
+    fetchDeskSpaceState(this.props.initDeskSpaceState);
+  }
 
   onButtonClicked(deskSpace) {
     if (this.props.selectedDeskSpace === null || 
@@ -18,21 +26,23 @@ class DeskSpaces extends Component {
 
   createDeskSpaceButtons() {
     var selectedDeskSpace = this.props.selectedDeskSpace;
-    return this.props.deskSpaces.map((deskSpace) => {
-      var isSelected = selectedDeskSpace && selectedDeskSpace.id === deskSpace.id;
-      var backgroundColor = isSelected ? '#FA8072' : 'white';
-    
-      return (
-        <DeskSpaceButton deskSpace={deskSpace}
-                         isSelected={isSelected}
-                         key={deskSpace.id}
-                         top={deskSpace.top}
-                         left={deskSpace.left} 
-                         isVertical={deskSpace.isVertical}
-                         backgroundColor={backgroundColor}
-                         onButtonClicked={(deskSpace) => this.onButtonClicked(deskSpace)}/>
-      );
-    });
+    if (this.props.deskSpaces) {
+      return this.props.deskSpaces.map((deskSpace) => {
+        var isSelected = selectedDeskSpace && selectedDeskSpace.id === deskSpace.id;
+        var backgroundColor = isSelected ? '#FA8072' : 'white';
+      
+        return (
+          <DeskSpaceButton deskSpace={deskSpace}
+                           isSelected={isSelected}
+                           key={deskSpace.id}
+                           top={deskSpace.top}
+                           left={deskSpace.left} 
+                           isVertical={deskSpace.isVertical}
+                           backgroundColor={backgroundColor}
+                           onButtonClicked={(deskSpace) => this.onButtonClicked(deskSpace)}/>
+        );
+      });
+    }
   }
 
   render() {
@@ -46,7 +56,7 @@ class DeskSpaces extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log('deskSpaces = ', state.deskSpaces);
+  // console.log('current deskSpace state= ', state.deskSpaces);
   return {
     deskSpaces: state.deskSpaces,
     selectedDeskSpace: state.selectedDeskSpace
@@ -55,6 +65,7 @@ function mapStateToProps(state) {
 
 function matchDispatchToProps(dispatch) {
   var actionCreators = {
+    initDeskSpaceState: initDeskSpaceState,
     selectDeskSpace: selectDeskSpace,
     unselectDeskSpace: unselectDeskSpace
   };

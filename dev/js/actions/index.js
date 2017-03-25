@@ -16,6 +16,15 @@ export const unselectEmptySpace = (emptySpace) => {
   };
 };
 
+export const initDeskSpaceState = (initialDeskSpaceState) => {
+  console.log('initialDeskSpaceState = ', initialDeskSpaceState);
+  
+  return {
+    type: 'INIT_DESK_SPACE_STATE',
+    payload: initialDeskSpaceState
+  };
+};
+
 export const createNewDeskSpace = (emptySpace1, emptySpace2) => {
   console.log('You are creating a new desk with spaces: ', [emptySpace1, emptySpace2]);
   
