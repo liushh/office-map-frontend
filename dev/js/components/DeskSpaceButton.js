@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {CONSTANTS} from '../constants';
+import classNames from 'classnames'
 
 class DeskSpaceButton extends Component {
   
@@ -16,10 +17,14 @@ class DeskSpaceButton extends Component {
       backgroundColor: this.props.backgroundColor,
     };
 
+    var textDivClassName = classNames(
+      { 'rotate-ninety': this.props.isVertical }, 
+      'map-item-text-div'
+    );
     return (
       <div className='map-item-button' style={constStyle}
           onClick={() => this.props.onButtonClicked(this.props.deskSpace)}>
-        {this.props.deskSpace.ownerName}
+        <div className={textDivClassName}>{this.props.deskSpace.ownerName}</div>
       </div>
     );
   }  

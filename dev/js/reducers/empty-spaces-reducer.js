@@ -9,7 +9,7 @@ for (var i = 0; i < 48; i++) {
 const initialState = [];
 
 const initialTop = 10;
-const initialLeft = 400;
+const initialLeft = 10;
 
 const spaceHeight = CONSTANTS.EMPTY_SPACE_SIZE;
 const spacewidth = CONSTANTS.EMPTY_SPACE_SIZE;

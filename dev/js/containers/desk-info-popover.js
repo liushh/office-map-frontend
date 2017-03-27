@@ -18,15 +18,24 @@ class DeskInfoPopover extends Component {
   handleKeydown(event) {
     // console.log('event.keyCode = ', event.keyCode);
     if (this.props.selectedDeskSpace != null) { 
-      if (event.keyCode === 8) {
-        // console.log('delete pressed!!!!!!!!!!!!!!!!');
-        this.props.deleteDeskSpace(this.props.selectedDeskSpace);
-        this.props.unselectDeskSpace();
-      } else if (event.keyCode === 13 || event.keyCode === 27) {
+      if (event.keyCode === 13 || event.keyCode === 27) {
         // console.log('close popover');
         this.props.unselectDeskSpace();
       }
     }
+  }
+
+  onDeleteButtonClicked() {
+    this.props.deleteDeskSpace(this.props.selectedDeskSpace);
+    this.props.unselectDeskSpace();
+  }
+
+  onSaveButtonClicked() {
+    this.props.unselectDeskSpace();
+  }
+
+  onCancelButtonClicked() {
+    this.props.unselectDeskSpace();
   }
 
   onNameChanged(event) {
@@ -41,7 +50,7 @@ class DeskInfoPopover extends Component {
     const constStyle = {
       position: 'absolute',
       width: 150,
-      height: 50,
+      height: 100,
       top: 50,
       left: 50,
       borderRadius: 0,
@@ -57,6 +66,9 @@ class DeskInfoPopover extends Component {
                defaultValue={this.props.selectedDeskSpace.ownerName} 
                autoFocus='autofocus'
                onChange={(event) => this.onNameChanged(event)} ></input>
+        <button onClick={() => this.onDeleteButtonClicked()}>Delete</button>
+        <button onClick={() => this.onSaveButtonClicked()}>Save</button>
+        <button onClick={() => this.onCancelButtonClicked()}>Cancel</button>
       </div>
     );
   }  

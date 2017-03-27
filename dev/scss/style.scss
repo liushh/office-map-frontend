@@ -9,3 +9,13 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+.map-item-text-div {
+  font-size: 10px;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+.rotate-ninety {
+  -webkit-transform: rotate(90deg);
+}
