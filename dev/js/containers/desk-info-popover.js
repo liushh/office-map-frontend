@@ -16,10 +16,8 @@ class DeskInfoPopover extends Component {
   }
 
   handleKeydown(event) {
-    // console.log('event.keyCode = ', event.keyCode);
     if (this.props.selectedDeskSpace != null) { 
       if (event.keyCode === 13 || event.keyCode === 27) {
-        // console.log('close popover');
         this.props.unselectDeskSpace();
       }
     }

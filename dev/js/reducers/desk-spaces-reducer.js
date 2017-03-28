@@ -22,19 +22,14 @@ function createNewDeskSpace(emptySpace1, emptySpace2) {
 }
 
 export default function (state=null, action) {
-  // console.log('current desk space state output= ', JSON.stringify(state));
-
   switch(action.type) {
     case 'INIT_DESK_SPACE_STATE':
-      console.log('INIT_DESK_SPACE_STATE = ', action.payload);
       return action.payload;
       break;
     case 'CREATE_NEW_DESK_SPACE':
       var deskSpace = createNewDeskSpace(action.payload[0], action.payload[1])
       var index = state.length;
 
-      // console.log('create a new desk = ', deskSpace);
-       
       var newState = [
         ...state.slice(0, index),
         deskSpace,
@@ -52,7 +47,6 @@ export default function (state=null, action) {
           return;
         }
       })
-      // console.log('deleting a desk space = ', action.payload);
       var newState = [
         ...state.slice(0, index),
         ...state.slice(index + 1)
@@ -61,12 +55,10 @@ export default function (state=null, action) {
       return newState;
       break;
     case 'UPDATE_DESK_SPACE':
-      // console.log('update selected deskSpace.name = ', action.payload.ownerName);
       var newState = updateArrayElement(state, action.payload);
       updateDeskSpaceState(newState);
       return newState;
       break;
   }
-  // console.log('state = ', state);
   return state;
 }

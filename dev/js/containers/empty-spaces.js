@@ -73,7 +73,6 @@ class EmptySpaces extends Component {
 }
 
 function mapStateToProps(state) {
-  // console.log('state.selectedEmptySpaces = ', state.selectedEmptySpaces);
   return {
     emptySpaces: state.emptySpaces,
     selectedEmptySpaces: state.selectedEmptySpaces

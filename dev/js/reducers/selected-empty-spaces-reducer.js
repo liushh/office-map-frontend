@@ -16,7 +16,6 @@ export default function (state=[], action) {
           index = i;
         }
       })
-      // console.log('unselected empty space = ', action.payload);
       return [
         ...state.slice(0, index),
         ...state.slice(index + 1)

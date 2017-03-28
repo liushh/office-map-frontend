@@ -11,7 +11,6 @@ import {fetchDeskSpaceState} from '../utils/reducer-util';
 class DeskSpaces extends Component {
 
   componentDidMount() {
-    console.log('this.props.initDeskSpaceState = ', this.props.initDeskSpaceState);
     fetchDeskSpaceState(this.props.initDeskSpaceState);
   }
 
@@ -46,7 +45,6 @@ class DeskSpaces extends Component {
   }
 
   render() {
-    // console.log('this.deskSpaces = ', this.props);
     return (
       <div>
         {this.createDeskSpaceButtons()}
@@ -56,7 +54,6 @@ class DeskSpaces extends Component {
 }
 
 function mapStateToProps(state) {
-  // console.log('current deskSpace state= ', state.deskSpaces);
   return {
     deskSpaces: state.deskSpaces,
     selectedDeskSpace: state.selectedDeskSpace
