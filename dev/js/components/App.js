@@ -11,8 +11,8 @@ const generalInfoStyle = {
   position: 'absolute',
   width: 400,
   height: 220,
-  top: 600,
-  left: 400,
+  top: 430,
+  left: 570,
   borderRadius: 0,
   backgroundColor: 'white',
   borderColor: '#808080',
@@ -49,6 +49,7 @@ const App = () => (
     <DeskSpaces/>
     <RoomSpaces/>
     <DeskInfoPopover/>
+    {generalInfo}
   </div>
 );
 
