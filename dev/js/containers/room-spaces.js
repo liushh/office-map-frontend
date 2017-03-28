@@ -32,7 +32,6 @@ class RoomSpaces extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log('roomSpaces = ', state.roomSpaces);
   return {
     roomSpaces: state.roomSpaces
   };

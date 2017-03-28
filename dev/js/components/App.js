@@ -33,8 +33,7 @@ const generalInfo = (
     </ul>
     <span>Upcoming features: </span>
     <ul> 
-      <li>Offices and meeting rooms</li>
-      <li>Different color for available and assigned desk</li>
+      <li>Different color for available/assigned desk and rooms</li>
       <li>WL1 office version</li>
     </ul>
 
