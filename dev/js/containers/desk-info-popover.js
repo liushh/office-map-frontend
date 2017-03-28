@@ -47,25 +47,35 @@ class DeskInfoPopover extends Component {
     }
     const constStyle = {
       position: 'absolute',
-      width: 150,
-      height: 100,
-      top: 50,
-      left: 50,
+      width: 190,
+      height: 70,
+      top: 500,
+      left: 500,
       borderRadius: 0,
-      backgroundColor: 'grey',
+      backgroundColor: 'white',
       borderColor: '#808080',
       borderWidth: 1,
-      borderStyle: 'solid'
+      borderStyle: 'solid',
+      padding: 10
+    };
+    const infoDivStyle = {
+      marginBottom: 30
+    };
+    const buttonStyle = {
+      marginRight: 20
     };
     return (
       <div style={constStyle}>
-        <span>Name:</span>
-        <input type='text' 
-               defaultValue={this.props.selectedDeskSpace.ownerName} 
-               autoFocus='autofocus'
-               onChange={(event) => this.onNameChanged(event)} ></input>
-        <button onClick={() => this.onDeleteButtonClicked()}>Delete</button>
-        <button onClick={() => this.onSaveButtonClicked()}>Save</button>
+        <div style={infoDivStyle}>
+          <span>Name: </span>
+          <input type='text' 
+                 defaultValue={this.props.selectedDeskSpace.ownerName} 
+                 autoFocus='autofocus'
+                 onChange={(event) => this.onNameChanged(event)} ></input>
+        </div>
+        
+        <button style={buttonStyle} onClick={() => this.onDeleteButtonClicked()}>Delete</button>
+        <button style={buttonStyle} onClick={() => this.onSaveButtonClicked()}>Save</button>
         <button onClick={() => this.onCancelButtonClicked()}>Cancel</button>
       </div>
     );
