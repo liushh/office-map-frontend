@@ -18,14 +18,14 @@ export function fetchDeskSpaceState(callback) {
        .then(result => {
           callback(JSON.parse(result.request.response));
         });
-  // axios.get('http://52.24.173.81/desk_space_state')
+  // axios.get('http://34.208.26.167/desk_space_state')
   //      .then(result => {
   //         callback(JSON.parse(result.request.response));
   //       });
 }
 
 export function updateDeskSpaceState(state) {
-  // axios.post('http://52.24.173.81/desk_space_state', {
+  // axios.post('http://34.208.26.167/desk_space_state', {
   //         desk_space_state: state,
   //       })
   //      .then(function (response) {

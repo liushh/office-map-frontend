@@ -22,3 +22,18 @@
   transform-origin: 10px 10px;
   width: 40px;
 }
+
+.room {
+  position: absolute;
+  border-radius: 0;
+  border-color: #808080;
+  border-width: 1px;
+  border-style: solid;
+
+  white-space: nowrap;
+  overflow: hidden;
+  background-color: white;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 90px;   
+}
