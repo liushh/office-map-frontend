@@ -3,10 +3,6 @@ import {CONSTANTS} from '../constants';
 import classNames from 'classnames'
 
 class DeskSpaceButton extends Component {
-  
-  onButtonClicked() {
-    this.props.onButtonClicked(this.props.item);
-  }
 
   render() {
     const constStyle = {

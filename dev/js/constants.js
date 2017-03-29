@@ -2,6 +2,22 @@ export const CONSTANTS = {
   EMPTY_SPACE_SIZE: 20
 }
 
+export const WL2_OFFICE_ID = 'wl2_gdl';
+export const WL1_OFFICE_ID = 'wl1_gdl';
+
+export const OFFICE_STATES = [
+    {
+        name: 'Wizeline1(GDL)',
+        id: WL1_OFFICE_ID,
+        selected: false
+    },
+    {
+        name: 'Wizeline2(GDL)',
+        id: WL2_OFFICE_ID,
+        selected: true
+    }
+];
+
 export const ROOM_SPACE_STATES = {
   wl2_room_space_state: [
     {

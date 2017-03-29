@@ -53,3 +53,10 @@ export const unselectDeskSpace = () => {
     payload: null
   };
 };
+
+export const updateOffices = (offices) => {
+  return {
+    type: 'UPDATE_OFFICES',
+    payload: offices
+  };
+};

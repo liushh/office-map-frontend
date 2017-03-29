@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {CONSTANTS} from '../constants';
 
 
 class RoomSpaceButton extends Component {

@@ -5,13 +5,15 @@ import selectedEmptySpacesReducer from './selected-empty-spaces-reducer';
 import deskSpacesReducer from './desk-spaces-reducer';
 import selectedDeskSpaceReducer from './selected-desk-space-reducer';
 import roomSpaceReducer from './room-spaces-reducer';
+import officesReducer from './offices-reducer';
 
 const allReducers = combineReducers({
   emptySpaces: emptySpacesReducer,
   selectedEmptySpaces: selectedEmptySpacesReducer,
   deskSpaces: deskSpacesReducer,
   selectedDeskSpace: selectedDeskSpaceReducer,
-  roomSpaces: roomSpaceReducer
+  roomSpaces: roomSpaceReducer,
+  offices: officesReducer
 });
 
 export default allReducers;

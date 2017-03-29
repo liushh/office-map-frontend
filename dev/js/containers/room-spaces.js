@@ -10,8 +10,7 @@ class RoomSpaces extends Component {
     if (this.props.roomSpaces) {
       return this.props.roomSpaces.map((roomSpace) => {
         return (
-          <RoomSpaceButton deskSpace={roomSpace}
-                           key={roomSpace.id}
+          <RoomSpaceButton key={roomSpace.id}
                            name={roomSpace.name}
                            top={roomSpace.top}
                            left={roomSpace.left} 
