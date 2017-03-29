@@ -54,6 +54,13 @@ export const unselectDeskSpace = () => {
   };
 };
 
+export const selectOffice = (office) => {
+  return {
+    type: 'SELECT_OFFICE',
+    payload: office
+  };
+};
+
 export const updateOffices = (offices) => {
   return {
     type: 'UPDATE_OFFICES',

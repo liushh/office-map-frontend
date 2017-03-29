@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import OfficeSelectionButton from '../components/OfficeSelectionButton';
 import {updateOffices} from '../actions/index';
+import {selectOffice} from '../actions/index';
 
 
 
@@ -17,6 +18,7 @@ class OfficeSelectionButtons extends Component {
       }
     });
     this.props.updateOffices(this.props.offices);
+    this.props.selectOffice(office);
   }
 
   createOfficeSelectionButtons() {
@@ -43,13 +45,16 @@ class OfficeSelectionButtons extends Component {
 
 function mapStateToProps(state) {
   console.log('offices = ', state.offices);
+  console.log('selectedOffice = ', state.selectedOffice);
   return {
-    offices: state.offices
+    offices: state.offices,
+    selectedOffice: state.selectedOffice
   };
 }
 
 function matchDispatchToProps(dispatch) {
   var actionCreators = {
+    selectOffice: selectOffice,
     updateOffices: updateOffices
   };
   return bindActionCreators(actionCreators, dispatch);

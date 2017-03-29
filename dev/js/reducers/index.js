@@ -6,6 +6,7 @@ import deskSpacesReducer from './desk-spaces-reducer';
 import selectedDeskSpaceReducer from './selected-desk-space-reducer';
 import roomSpaceReducer from './room-spaces-reducer';
 import officesReducer from './offices-reducer';
+import selectedOfficeReducer from './selected-office-reducer';
 
 const allReducers = combineReducers({
   emptySpaces: emptySpacesReducer,
@@ -13,7 +14,8 @@ const allReducers = combineReducers({
   deskSpaces: deskSpacesReducer,
   selectedDeskSpace: selectedDeskSpaceReducer,
   roomSpaces: roomSpaceReducer,
-  offices: officesReducer
+  offices: officesReducer,
+  selectedOffice: selectedOfficeReducer
 });
 
 export default allReducers;
