@@ -1,3 +1,5 @@
+import {ROOM_SPACE_STATES} from '../constants';
+
 const roomSpaceState = [
     {
         name: 'ENTRANCE',
@@ -137,6 +139,7 @@ const roomSpaceState = [
     }
 ];
 
-export default function(state=roomSpaceState, action) {
+
+export default function(state=ROOM_SPACE_STATES.wl2_room_space_state, action) {
     return state;
 }
