@@ -33,7 +33,8 @@ class EmptySpaces extends Component {
   onButtonClicked(emptySpace) {
     var connectedEmptySpaces = this.haveTwoSelectedEmptySpaceTogether(emptySpace);
     if (connectedEmptySpaces) {
-      this.props.createNewDeskSpace(connectedEmptySpaces.existingEmptySpace, 
+      this.props.createNewDeskSpace(this.props.selectedOffice.id,
+                                    connectedEmptySpaces.existingEmptySpace, 
                                     connectedEmptySpaces.newAddedEmptySpace);
       this.props.unselectEmptySpace(connectedEmptySpaces.existingEmptySpace);
     } 
@@ -75,7 +76,8 @@ class EmptySpaces extends Component {
 function mapStateToProps(state) {
   return {
     emptySpaces: state.emptySpaces,
-    selectedEmptySpaces: state.selectedEmptySpaces
+    selectedEmptySpaces: state.selectedEmptySpaces,
+    selectedOffice: state.selectedOffice
   };
 }
 

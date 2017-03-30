@@ -19,24 +19,34 @@ export const initDeskSpaceState = (initialDeskSpaceState) => {
   };
 };
 
-export const createNewDeskSpace = (emptySpace1, emptySpace2) => {
+export const createNewDeskSpace = (office_id, emptySpace1, emptySpace2) => {
   return {
     type: 'CREATE_NEW_DESK_SPACE',
-    payload: [emptySpace1, emptySpace2]
+    payload: {
+      office_id: office_id,
+      emptySpace1: emptySpace1,
+      emptySpace2: emptySpace2
+    }
   };
 };
 
-export const deleteDeskSpace = (deskSpace) => {
+export const deleteDeskSpace = (office_id, deskSpace) => {
   return {
     type: 'DELETE_DESK_SPACE',
-    payload: deskSpace
+    payload: {
+      office_id: office_id,
+      deskSpace: deskSpace
+    }
   };
 };
 
-export const updateDeskSpace = (deskSpace) => {
+export const updateDeskSpace = (office_id, deskSpace) => {
   return {
     type: 'UPDATE_DESK_SPACE',
-    payload: deskSpace
+    payload: {
+      office_id: office_id,
+      deskSpace: deskSpace
+    }
   };
 };
 

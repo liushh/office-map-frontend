@@ -1,6 +1,5 @@
 import axios from 'axios';
 
-
 export function updateArrayElement(array, element) {
   return array.map((item) => {
     if (item.id !== element.id) {
@@ -23,7 +22,6 @@ export function fetchDeskSpaceState(callback, officeId) {
     params: {
       office_id: officeId
     }
-
   };
   axios.get(url, url_param)
        .then(result => {
@@ -32,7 +30,8 @@ export function fetchDeskSpaceState(callback, officeId) {
 }
 
 export function updateDeskSpaceState(state, officeId) {
-  axios.post('http://127.0.0.1:5000/desk_space_state', {
+  const url = 'http://127.0.0.1:5000/desk_space_state';
+  axios.post(url, {
           desk_space_state: state,
           office_id: officeId
         })

@@ -24,7 +24,7 @@ class DeskInfoPopover extends Component {
   }
 
   onDeleteButtonClicked() {
-    this.props.deleteDeskSpace(this.props.selectedDeskSpace);
+    this.props.deleteDeskSpace(this.props.selectedOffice.id, this.props.selectedDeskSpace);
     this.props.unselectDeskSpace();
   }
 
@@ -38,7 +38,7 @@ class DeskInfoPopover extends Component {
 
   onNameChanged(event) {
     this.props.selectedDeskSpace.ownerName = event.target.value;
-    this.props.updateDeskSpace(this.props.selectedDeskSpace);
+    this.props.updateDeskSpace(this.props.selectedOffice.id, this.props.selectedDeskSpace);
   }
 
   render() {
@@ -84,7 +84,8 @@ class DeskInfoPopover extends Component {
 
 function mapStateToProps(state) {
   return {
-    selectedDeskSpace: state.selectedDeskSpace
+    selectedDeskSpace: state.selectedDeskSpace,
+    selectedOffice: state.selectedOffice
   };
 }
 

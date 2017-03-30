@@ -27,7 +27,7 @@ export default function (state=null, action) {
       return action.payload;
       break;
     case 'CREATE_NEW_DESK_SPACE':
-      var deskSpace = createNewDeskSpace(action.payload[0], action.payload[1])
+      var deskSpace = createNewDeskSpace(action.payload.emptySpace1, action.payload.emptySpace2)
       var index = state.length;
 
       var newState = [
@@ -35,14 +35,14 @@ export default function (state=null, action) {
         deskSpace,
         ...state.slice(index)
       ];
-      updateDeskSpaceState(newState);
+      updateDeskSpaceState(newState, action.payload.office_id);
 
       return newState;
       break;
     case 'DELETE_DESK_SPACE':
       var index = 0;
       state.forEach((item, i) => {
-        if (item.id === action.payload.id) {
+        if (item.id === action.payload.deskSpace.id) {
           index = i;
           return;
         }
@@ -51,12 +51,12 @@ export default function (state=null, action) {
         ...state.slice(0, index),
         ...state.slice(index + 1)
       ];
-      updateDeskSpaceState(newState);
+      updateDeskSpaceState(newState, action.payload.office_id);
       return newState;
       break;
     case 'UPDATE_DESK_SPACE':
-      var newState = updateArrayElement(state, action.payload);
-      updateDeskSpaceState(newState);
+      var newState = updateArrayElement(state, action.payload.deskSpace);
+      updateDeskSpaceState(newState, action.payload.office_id);
       return newState;
       break;
   }

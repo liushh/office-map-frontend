@@ -11,13 +11,12 @@ import {fetchDeskSpaceState} from '../utils/reducer-util';
 class DeskSpaces extends Component {
 
   componentDidMount() {
-    console.log('about to fetch desk space state with office = ', this.props.selectedOffice);
     fetchDeskSpaceState(this.props.initDeskSpaceState, this.props.selectedOffice.id);
   }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.selectedOffice.id != this.props.selectedOffice.id) {
-      fetchDeskSpaceState(this.props.initDeskSpaceState, this.props.selectedOffice.id);
+      fetchDeskSpaceState(this.props.initDeskSpaceState, nextProps.selectedOffice.id);
     }
   }
 

@@ -19,6 +19,7 @@ export const OFFICE_STATES = [
 ];
 
 export const ROOM_SPACE_STATES = {
+  wl1_room_space_state: [],
   wl2_room_space_state: [
     {
         name: 'ENTRANCE',
