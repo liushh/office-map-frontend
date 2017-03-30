@@ -11,7 +11,14 @@ import {fetchDeskSpaceState} from '../utils/reducer-util';
 class DeskSpaces extends Component {
 
   componentDidMount() {
-    fetchDeskSpaceState(this.props.initDeskSpaceState);
+    console.log('about to fetch desk space state with office = ', this.props.selectedOffice);
+    fetchDeskSpaceState(this.props.initDeskSpaceState, this.props.selectedOffice.id);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.selectedOffice.id != this.props.selectedOffice.id) {
+      fetchDeskSpaceState(this.props.initDeskSpaceState, this.props.selectedOffice.id);
+    }
   }
 
   onButtonClicked(deskSpace) {
@@ -45,6 +52,7 @@ class DeskSpaces extends Component {
   }
 
   render() {
+    console.log('rendering deskSpaces');
     return (
       <div>
         {this.createDeskSpaceButtons()}
@@ -56,7 +64,8 @@ class DeskSpaces extends Component {
 function mapStateToProps(state) {
   return {
     deskSpaces: state.deskSpaces,
-    selectedDeskSpace: state.selectedDeskSpace
+    selectedDeskSpace: state.selectedDeskSpace,
+    selectedOffice: state.selectedOffice
   };
 }
 
