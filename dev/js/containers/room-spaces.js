@@ -33,7 +33,7 @@ class RoomSpaces extends Component {
 
 function mapStateToProps(state) {
   return {    
-    roomSpaces: state.roomSpaces
+    roomSpaces: state.roomSpaces,
     selectedOffice: state.selectedOffice
   };
 }
