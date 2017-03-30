@@ -2,13 +2,14 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import RoomSpaceButton from '../components/RoomSpaceButton';
+import {ROOM_SPACE_STATES} from '../constants';
 
 
 class RoomSpaces extends Component {
 
   createRoomButtons() {
-    if (this.props.roomSpaces) {
-      return this.props.roomSpaces.map((roomSpace) => {
+    if (this.props.selectedOffice) {
+      return ROOM_SPACE_STATES[this.props.selectedOffice.id].map((roomSpace) => {
         return (
           <RoomSpaceButton key={roomSpace.id}
                            name={roomSpace.name}
@@ -31,8 +32,9 @@ class RoomSpaces extends Component {
 }
 
 function mapStateToProps(state) {
-  return {
+  return {    
     roomSpaces: state.roomSpaces
+    selectedOffice: state.selectedOffice
   };
 }
 
