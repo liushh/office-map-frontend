@@ -48,7 +48,6 @@ const App = () => (
     <DeskSpaces/>
     <RoomSpaces/>
     <DeskInfoPopover/>
-    {generalInfo}
     <OfficeSelectionButton/>
   </div>
 );
