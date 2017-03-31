@@ -12,8 +12,8 @@ const generalInfoStyle = {
   position: 'absolute',
   width: 400,
   height: 220,
-  top: 430,
-  left: 570,
+  top: 630,
+  left: 690,
   borderRadius: 0,
   backgroundColor: 'white',
   borderColor: '#808080',
@@ -35,7 +35,7 @@ const generalInfo = (
     <span>Upcoming features: </span>
     <ul> 
       <li>Different color for available/assigned desk and rooms</li>
-      <li>WL1 office version</li>
+      <li>BambooHR integration for more information</li>
     </ul>
 
 
@@ -49,6 +49,7 @@ const App = () => (
     <RoomSpaces/>
     <DeskInfoPopover/>
     <OfficeSelectionButtons />
+    {generalInfo}
   </div>
 );
 

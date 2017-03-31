@@ -14,7 +14,11 @@ class OfficeSelectionButton extends Component {
       borderRadius: 0,
       borderColor: '#808080',
       borderWidth: 1,
-      borderStyle: 'solid'
+      borderStyle: 'solid',
+      whiteSpace: 'nowrap',
+      overflow: 'hidden',
+      textAlign: 'center',
+      verticalAlign: 'middle'
     };
     return (
       <div key={this.props.office.id} 
