@@ -9,6 +9,7 @@ class OfficeSelectionButton extends Component {
       top: 10,
       left: (10 + 630 * this.props.index),
       backgroundColor: (this.props.isSelected ? 'white' : 'grey'),
+      color: (this.props.isSelected ? 'black' : 'lightgrey'),
       position: 'absolute',
       borderRadius: 0,
       borderColor: '#808080',

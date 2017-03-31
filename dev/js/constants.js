@@ -37,8 +37,8 @@ export const ROOM_SPACE_STATES = {
         width: 200
     },
     {
-        name: '???',
-        id: 'wl1_??',
+        name: 'ELION',
+        id: 'wl1_elion',
         top: 410,
         left: 850,
         height: 120,
@@ -64,29 +64,21 @@ export const ROOM_SPACE_STATES = {
         name: 'STORAGE',
         id: 'wl1_storage',
         top: 50,
-        left: 890,
+        left: 870,
         height: 80,
-        width: 80
+        width: 160
     },
     {
-        name: '?',
-        id: 'wl1_?',
-        top: 50,
-        left: 970,
-        height: 80,
-        width: 80
-    },
-    {
-        name: '????',
-        id: 'wl1_????',
+        name: 'Einstein',
+        id: 'wl1_einstein',
         top: 50,
         left: 1050,
         height: 80,
         width: 80
     },
     {
-        name: '??????',
-        id: 'wl1_??????',
+        name: 'Edison',
+        id: 'wl1_edison',
         top: 50,
         left: 1130,
         height: 80,
@@ -101,40 +93,40 @@ export const ROOM_SPACE_STATES = {
         width: 60
     },
     {
-        name: 'R1',
-        id: 'wl1_r1',
+        name: 'FAHRENHEIT',
+        id: 'wl1_fahrenheit',
         top: 410,
         left: 210,
         height: 80,
         width: 60
     },
     {
-        name: 'R2',
-        id: 'wl1_r2',
+        name: 'FARADAY',
+        id: 'wl1_faraday',
         top: 410,
         left: 130,
         height: 100,
         width: 80
     },
     {
-        name: 'R3',
-        id: 'wl1_r3',
+        name: 'FORBES',
+        id: 'wl1_forbes',
         top: 410,
         left: 10,
         height: 100,
         width: 120
     },
     {
-        name: 'R4',
-        id: 'wl1_r4',
+        name: 'FORD',
+        id: 'wl1_ford',
         top: 510,
         left: 10,
         height: 80,
         width: 100
     },
     {
-        name: 'R5',
-        id: 'wl1_r5',
+        name: 'FRANKLIN',
+        id: 'wl1_franklin',
         top: 590,
         left: 10,
         height: 80,
