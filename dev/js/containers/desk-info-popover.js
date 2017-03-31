@@ -45,12 +45,27 @@ class DeskInfoPopover extends Component {
     if (this.props.selectedDeskSpace === null) {
       return null;
     }
+
+    var top = 0;
+    if (this.props.selectedDeskSpace.top < 150) {
+      top = this.props.selectedDeskSpace.top + 40 + 20;
+    } else {
+      top = this.props.selectedDeskSpace.top - 110;
+    }
+
+    var left = 0;
+    if (this.props.selectedDeskSpace.left < 100) {
+      left = this.props.selectedDeskSpace.left;
+    } else {
+      left = this.props.selectedDeskSpace.left - 100;
+    }
+
     const constStyle = {
       position: 'absolute',
       width: 190,
       height: 70,
-      top: 190,
-      left: 170,
+      top: top,
+      left: left,
       borderRadius: 0,
       backgroundColor: 'white',
       borderColor: '#808080',
@@ -83,6 +98,7 @@ class DeskInfoPopover extends Component {
 }
 
 function mapStateToProps(state) {
+  console.log('selectedDeskSpace = ', state.selectedDeskSpace);
   return {
     selectedDeskSpace: state.selectedDeskSpace,
     selectedOffice: state.selectedOffice

@@ -9,12 +9,12 @@ export const OFFICE_STATES = [
     {
         name: 'Wizeline1(GDL)',
         id: WL1_OFFICE_ID,
-        selected: false
+        isSelected: false
     },
     {
         name: 'Wizeline2(GDL)',
         id: WL2_OFFICE_ID,
-        selected: true
+        isSelected: true
     }
 ];
     

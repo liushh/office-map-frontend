@@ -12,9 +12,9 @@ class OfficeSelectionButtons extends Component {
   onButtonClicked(office) {
     this.props.offices.forEach((currentOffice) => {
       if (office.id === currentOffice.id) {
-        currentOffice.selected = true;
+        currentOffice.isSelected = true;
       } else {
-        currentOffice.selected = false;
+        currentOffice.isSelected = false;
       }
     });
     this.props.updateOffices(this.props.offices);
@@ -28,6 +28,7 @@ class OfficeSelectionButtons extends Component {
           <OfficeSelectionButton office={office}
                                  key={office.id}
                                  index={index} 
+                                 isSelected={office.isSelected}
                                  onButtonClicked={(office) => this.onButtonClicked(office)}/>
         );
       });
@@ -44,8 +45,6 @@ class OfficeSelectionButtons extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log('offices = ', state.offices);
-  console.log('selectedOffice = ', state.selectedOffice);
   return {
     offices: state.offices,
     selectedOffice: state.selectedOffice

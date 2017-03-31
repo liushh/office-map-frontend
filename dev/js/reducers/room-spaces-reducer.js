@@ -1,7 +1,9 @@
 import {ROOM_SPACE_STATES} from '../constants';
+import {getSelectedOfficeId} from '../utils/local-storage-util'
 
-//TODO: default office
+var selectedOfficeId = getSelectedOfficeId();
+var initialState = selectedOfficeId ? ROOM_SPACE_STATES[selectedOfficeId] : ROOM_SPACE_STATES.wl2_gdl;
 
-export default function(state=ROOM_SPACE_STATES.wl1_gdl, action) {
+export default function(state=initialState, action) {
     return state;
 }
