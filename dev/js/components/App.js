@@ -3,7 +3,7 @@ import EmptySpaces from '../containers/empty-spaces'
 import DeskSpaces from '../containers/desk-spaces'
 import RoomSpaces from '../containers/room-spaces'
 import DeskInfoPopover from '../containers/desk-info-popover'
-import OfficeSelectionButton from '../containers/office-selection-buttons'
+import OfficeSelectionButtons from '../containers/office-selection-buttons'
 
 require('../../scss/style.scss');
 
@@ -48,7 +48,7 @@ const App = () => (
     <DeskSpaces/>
     <RoomSpaces/>
     <DeskInfoPopover/>
-    <OfficeSelectionButton/>
+    <OfficeSelectionButtons />
   </div>
 );
 

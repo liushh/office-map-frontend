@@ -1,14 +1,14 @@
 import {updateArrayElement} from '../utils/reducer-util'
 import {CONSTANTS} from '../constants';
 
-const row = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+const row = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 const matrix = [];
 for (var i = 0; i < 48; i++) {
   matrix.push(row);
 }
 const initialState = [];
 
-const initialTop = 10;
+const initialTop = 50;
 const initialLeft = 10;
 
 const spaceHeight = CONSTANTS.EMPTY_SPACE_SIZE;
