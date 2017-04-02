@@ -61,32 +61,24 @@ class DeskInfoPopover extends Component {
     }
 
     const constStyle = {
-      position: 'absolute',
-      width: 190,
-      height: 70,
       top: top,
-      left: left,
-      borderRadius: 0,
-      backgroundColor: 'white',
-      borderColor: '#808080',
-      borderWidth: 1,
-      borderStyle: 'solid',
-      padding: 10
+      left: left
     };
     const infoDivStyle = {
-      marginBottom: 30
+      marginBottom: 15
     };
     const buttonStyle = {
       marginRight: 20
     };
     return (
-      <div style={constStyle}>
+      <div className='desk-info-popover' style={constStyle}>
         <div style={infoDivStyle}>
           <span>Name: </span>
           <input type='text' 
                  defaultValue={this.props.selectedDeskSpace.ownerName} 
                  autoFocus='autofocus'
                  onChange={(event) => this.onNameChanged(event)} ></input>
+          <span>(press Enter to save)</span>
         </div>
         
         <button style={buttonStyle} onClick={() => this.onDeleteButtonClicked()}>Delete</button>
