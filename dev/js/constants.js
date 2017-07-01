@@ -207,8 +207,8 @@ export const ROOM_SPACE_STATES = {
         width: 60
     },
     {
-        name: 'FINANCE OFFICE',
-        id: 'wl2_finance_office',
+        name: 'Hubble',
+        id: 'wl2_hubble',
         top: 870,
         left: 430,
         height: 120,
@@ -223,8 +223,8 @@ export const ROOM_SPACE_STATES = {
         width: 120
     },
     {
-        name: 'WRIKE',
-        id: 'wl2_wrike',
+        name: 'FINANCE OFFICE',
+        id: 'wl2_finance_office',
         top: 590,
         left: 430,
         height: 100,
