@@ -4,6 +4,7 @@ export const CONSTANTS = {
 
 export const WL2_OFFICE_ID = 'wl2_gdl';
 export const WL1_OFFICE_ID = 'wl1_gdl';
+export const SAN_FRANCISCO = 'san_francisco';
 
 export const OFFICE_STATES = [
     {
@@ -15,6 +16,11 @@ export const OFFICE_STATES = [
         name: 'Wizeline2(GDL)',
         id: WL2_OFFICE_ID,
         isSelected: true
+    },
+    {
+        name: 'San Francisco',
+        id: SAN_FRANCISCO,
+        isSelected: false
     }
 ];
     
@@ -270,5 +276,175 @@ export const ROOM_SPACE_STATES = {
         height: 120,
         width: 260
     }
+  ],
+  san_francisco: [
+    {
+        name: 'o1',
+        id: 'o1',
+        top: 50,
+        left: 10,
+        height: 180,
+        width: 180
+    },
+    {
+        name: 'o2',
+        id: 'o2',
+        top: 50,
+        left: 190,
+        height: 180,
+        width: 100
+    },
+    {
+        name: 'o3',
+        id: 'o3',
+        top: 50,
+        left: 290,
+        height: 180,
+        width: 260
+    },
+    {
+        name: 'o4',
+        id: 'o4',
+        top: 50,
+        left: 550,
+        height: 100,
+        width: 100
+    },
+    {
+        name: 'o5',
+        id: 'o5',
+        top: 230,
+        left: 10,
+        height: 180,
+        width: 100
+    },
+    {
+        name: 'o6',
+        id: 'o6',
+        top: 410,
+        left: 10,
+        height: 300,
+        width: 100
+    },
+    {
+        name: 'o7',
+        id: 'o7',
+        top: 710,
+        left: 10,
+        height: 180,
+        width: 100
+    },
+    {
+        name: 'o8',
+        id: 'o8',
+        top: 770,
+        left: 110,
+        height: 120,
+        width: 120
+    },
+    {
+        name: 'o9',
+        id: 'o9',
+        top: 770,
+        left: 230,
+        height: 120,
+        width: 120
+    },
+    {
+        name: 'o10',
+        id: 'o10',
+        top: 270,
+        left: 330,
+        height: 160,
+        width: 100
+    },
+    {
+        name: 'o11',
+        id: 'o11',
+        top: 270,
+        left: 430,
+        height: 160,
+        width: 120
+    },
+    {
+        name: 'o12',
+        id: 'o12',
+        top: 550,
+        left: 430,
+        height: 90,
+        width: 120
+    },
+    {
+        name: 'o13',
+        id: 'o13',
+        top: 640,
+        left: 430,
+        height: 90,
+        width: 120
+    },
+    {
+        name: 'o14',
+        id: 'o14',
+        top: 550,
+        left: 330,
+        height: 180,
+        width: 100
+    },
+    {
+        name: 'STAIRES',
+        id: 'staires',
+        top: 150,
+        left: 590,
+        height: 160,
+        width: 200
+    },
+    {
+        name: 'Elevator Lobby',
+        id: 'elevator_lobby',
+        top: 310,
+        left: 650,
+        height: 420,
+        width: 80
+    },
+    {
+        name: 'Storage Unit',
+        id: 'storage_unit',
+        top: 570,
+        left: 590,
+        height: 160,
+        width: 100
+    },
+    {
+        name: 'Elevator D',
+        id: 'elevator_d',
+        top: 330,
+        left: 730,
+        height: 80,
+        width: 60
+    },
+    {
+        name: 'Elevator E',
+        id: 'elevator_e',
+        top: 430,
+        left: 730,
+        height: 80,
+        width: 60
+    },
+    {
+        name: 'Elevator F',
+        id: 'elevator_f',
+        top: 530,
+        left: 730,
+        height: 80,
+        width: 60
+    },
+    {
+        name: 'Elevator G',
+        id: 'elevator_g',
+        top: 630,
+        left: 730,
+        height: 80,
+        width: 60
+    },
   ]
 }

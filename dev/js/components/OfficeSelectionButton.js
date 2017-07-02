@@ -4,10 +4,10 @@ class OfficeSelectionButton extends Component {
 
   render() {
     const constStyle = {
-      width: 630,
+      width: 420,
       height: 30,
       top: 10,
-      left: (10 + 630 * this.props.index),
+      left: (10 + 420 * this.props.index),
       backgroundColor: (this.props.isSelected ? 'white' : 'grey'),
       color: (this.props.isSelected ? 'black' : 'lightgrey'),
       position: 'absolute',

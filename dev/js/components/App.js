@@ -49,7 +49,7 @@ const App = () => (
     <RoomSpaces/>
     <DeskInfoPopover/>
     <OfficeSelectionButtons />
-    {generalInfo}
+  
   </div>
 );
 
