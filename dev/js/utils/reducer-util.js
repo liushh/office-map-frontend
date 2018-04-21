@@ -17,7 +17,8 @@ export function fetchDeskSpaceState(callback, officeId) {
   //      .then(result => {
   //         callback(JSON.parse(result.request.response).desk_space_state);
   //       });
-  const url = 'http://127.0.0.1:5000/desk_space_state';
+  // const url = 'http://127.0.0.1:5000/desk_space_state';
+  const url = 'http://54.245.174.44/desk_space_state';
   const url_param = {
     params: {
       office_id: officeId
@@ -30,8 +31,18 @@ export function fetchDeskSpaceState(callback, officeId) {
 }
 
 export function updateDeskSpaceState(state, officeId) {
-  const url = 'http://127.0.0.1:5000/desk_space_state';
-  axios.post(url, {
+  // const url = 'http://127.0.0.1:5000/desk_space_state';
+  // axios.post(url, {
+  //         desk_space_state: state,
+  //         office_id: officeId
+  //       })
+  //      .then(function (response) {
+  //         // console.log(response);
+  //      })
+  //      .catch(function (error) {
+  //         // console.log(error);
+  //      });
+  axios.post('http://54.245.174.44/desk_space_state', {
           desk_space_state: state,
           office_id: officeId
         })
@@ -41,13 +52,4 @@ export function updateDeskSpaceState(state, officeId) {
        .catch(function (error) {
           // console.log(error);
        });
-  // axios.post('http://54.245.174.44/desk_space_state', {
-  //         desk_space_state: state,
-  //       })
-  //      .then(function (response) {
-  //         // console.log(response);
-  //      })
-  //      .catch(function (error) {
-  //         // console.log(error);
-  //      });
 }

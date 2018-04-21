@@ -279,120 +279,96 @@ export const ROOM_SPACE_STATES = {
   ],
   san_francisco: [
     {
-        name: 'o1',
-        id: 'o1',
+        name: 'The Great Race',
+        id: 'the_great_race',
         top: 50,
         left: 10,
         height: 180,
         width: 180
     },
     {
-        name: 'o2',
-        id: 'o2',
-        top: 50,
-        left: 190,
-        height: 180,
-        width: 100
-    },
-    {
-        name: 'o3',
-        id: 'o3',
+        name: 'Anderson',
+        id: 'anderson',
         top: 50,
         left: 290,
         height: 180,
         width: 260
     },
     {
-        name: 'o4',
-        id: 'o4',
+        name: 'Brown',
+        id: 'brown',
         top: 50,
         left: 550,
         height: 100,
         width: 100
     },
     {
-        name: 'o5',
-        id: 'o5',
+        name: 'Bessemer',
+        id: 'bessemer',
         top: 230,
         left: 10,
         height: 180,
         width: 100
     },
     {
-        name: 'o6',
-        id: 'o6',
+        name: 'Archimedes',
+        id: 'archimedes',
         top: 410,
         left: 10,
         height: 300,
         width: 100
     },
     {
-        name: 'o7',
-        id: 'o7',
+        name: 'Agricola',
+        id: 'agricola ',
         top: 710,
         left: 10,
         height: 180,
         width: 100
     },
     {
-        name: 'o8',
-        id: 'o8',
+        name: 'Bell',
+        id: 'bell',
         top: 770,
         left: 110,
         height: 120,
         width: 120
     },
     {
-        name: 'o9',
-        id: 'o9',
+        name: 'Bose',
+        id: 'bose',
         top: 770,
         left: 230,
         height: 120,
         width: 120
     },
     {
-        name: 'o10',
-        id: 'o10',
+        name: 'Dining 1',
+        id: 'dining_1',
         top: 270,
         left: 330,
         height: 160,
         width: 100
     },
     {
-        name: 'o11',
-        id: 'o11',
+        name: 'Kitchen',
+        id: 'kitchen',
         top: 270,
         left: 430,
         height: 160,
         width: 120
     },
     {
-        name: 'o12',
-        id: 'o12',
+        name: 'Bentz',
+        id: 'bentz',
         top: 550,
         left: 430,
-        height: 90,
+        height: 60,
         width: 120
     },
     {
-        name: 'o13',
-        id: 'o13',
-        top: 640,
-        left: 430,
-        height: 90,
-        width: 120
-    },
-    {
-        name: 'o14',
-        id: 'o14',
-        top: 550,
-        left: 330,
-        height: 180,
-        width: 100
-    },
-    {
-        name: 'STAIRES',
-        id: 'staires',
+        name: 'STAIRS',
+        id: 'stairs',
         top: 150,
         left: 590,
         height: 160,

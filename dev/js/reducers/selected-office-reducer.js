@@ -5,7 +5,7 @@ import {setSelectedOfficeId} from '../utils/local-storage-util'
 import {getSelectedOfficeId} from '../utils/local-storage-util'
 
 var selectedOfficeId = getSelectedOfficeId();
-var initialState = OFFICE_STATES[0];
+var initialState = OFFICE_STATES[2];
 
 if (selectedOfficeId === WL2_OFFICE_ID) {
   initialState = OFFICE_STATES[1];
