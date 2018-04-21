@@ -1,8 +1,8 @@
-import {updateArrayElement} from '../utils/reducer-util'
-import {fetchDeskSpaceState} from '../utils/reducer-util'
-import {updateDeskSpaceState} from '../utils/reducer-util'
-import axios from 'axios';
-
+import {
+  updateArrayElement,
+  fetchDeskSpaceState,
+  updateDeskSpaceState
+} from '../resources/index'
 
 
 function createNewDeskSpace(emptySpace1, emptySpace2) {

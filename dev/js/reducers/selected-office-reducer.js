@@ -1,8 +1,10 @@
 import {OFFICE_STATES} from '../constants';
 import {WL1_OFFICE_ID, WL2_OFFICE_ID, SAN_FRANCISCO} from '../constants';
 
-import {setSelectedOfficeId} from '../utils/local-storage-util'
-import {getSelectedOfficeId} from '../utils/local-storage-util'
+import {
+  setSelectedOfficeId,
+  getSelectedOfficeId
+} from '../utils/local-storage-util'
 
 var selectedOfficeId = getSelectedOfficeId();
 var initialState = OFFICE_STATES[2];

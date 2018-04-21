@@ -1,11 +1,12 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import {
+  updateOffices,
+  selectOffice
+} from '../actions/index';
+
 import OfficeSelectionButton from '../components/OfficeSelectionButton';
-import {updateOffices} from '../actions/index';
-import {selectOffice} from '../actions/index';
-
-
 
 class OfficeSelectionButtons extends Component {
 
@@ -27,7 +28,7 @@ class OfficeSelectionButtons extends Component {
         return (
           <OfficeSelectionButton office={office}
                                  key={office.id}
-                                 index={index} 
+                                 index={index}
                                  isSelected={office.isSelected}
                                  onButtonClicked={(office) => this.onButtonClicked(office)}/>
         );
@@ -41,7 +42,7 @@ class OfficeSelectionButtons extends Component {
         {this.createOfficeSelectionButtons()}
       </div>
     );
-  }  
+  }
 }
 
 function mapStateToProps(state) {

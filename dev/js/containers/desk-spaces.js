@@ -1,12 +1,15 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import DeskSpaceButton from '../components/DeskSpaceButton';
-import {selectDeskSpace} from '../actions/index';
-import {unselectDeskSpace} from '../actions/index';
-import {initDeskSpaceState} from '../actions/index';
-import {fetchDeskSpaceState} from '../utils/reducer-util';
+import {
+  selectDeskSpace,
+  unselectDeskSpace,
+  initDeskSpaceState
+} from '../actions/index';
+import { fetchDeskSpaceState } from '../resources/index';
 
+console.log('fetchDeskSpaceState  = ', fetchDeskSpaceState);
 
 class DeskSpaces extends Component {
 
@@ -21,7 +24,7 @@ class DeskSpaces extends Component {
   }
 
   onButtonClicked(deskSpace) {
-    if (this.props.selectedDeskSpace === null || 
+    if (this.props.selectedDeskSpace === null ||
         this.props.selectedDeskSpace.id != deskSpace.id) {
       this.props.selectDeskSpace(deskSpace);
     } else {
@@ -35,13 +38,13 @@ class DeskSpaces extends Component {
       return this.props.deskSpaces.map((deskSpace) => {
         var isSelected = selectedDeskSpace && selectedDeskSpace.id === deskSpace.id;
         var backgroundColor = isSelected ? '#FA8072' : 'white';
-      
+
         return (
           <DeskSpaceButton deskSpace={deskSpace}
                            isSelected={isSelected}
                            key={deskSpace.id}
                            top={deskSpace.top}
-                           left={deskSpace.left} 
+                           left={deskSpace.left}
                            isVertical={deskSpace.isVertical}
                            backgroundColor={backgroundColor}
                            onButtonClicked={(deskSpace) => this.onButtonClicked(deskSpace)}/>
@@ -57,7 +60,7 @@ class DeskSpaces extends Component {
         {this.createDeskSpaceButtons()}
       </div>
     );
-  }  
+  }
 }
 
 function mapStateToProps(state) {

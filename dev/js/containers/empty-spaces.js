@@ -1,16 +1,19 @@
-import React, {Component} from 'react';
-import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux';
+import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { CONSTANTS } from '../constants';
+import {
+  selectEmptySpace,
+  unselectEmptySpace,
+  createNewDeskSpace
+} from '../actions/index';
+
 import EmptySpaceButton from '../components/EmptySpaceButton'
-import {selectEmptySpace} from '../actions/index';
-import {unselectEmptySpace} from '../actions/index';
-import {createNewDeskSpace} from '../actions/index';
-import {CONSTANTS} from '../constants';
 
 
 class EmptySpaces extends Component {
 
-  haveTwoSelectedEmptySpaceTogether(emptySpace) { 
+  haveTwoSelectedEmptySpaceTogether(emptySpace) {
     var connectedEmptySpaces = null;
     this.props.selectedEmptySpaces.forEach((item) => {
       if (this.areTwoSpacesConnected(item, emptySpace)) {
@@ -34,13 +37,13 @@ class EmptySpaces extends Component {
     var connectedEmptySpaces = this.haveTwoSelectedEmptySpaceTogether(emptySpace);
     if (connectedEmptySpaces) {
       this.props.createNewDeskSpace(this.props.selectedOffice.id,
-                                    connectedEmptySpaces.existingEmptySpace, 
+                                    connectedEmptySpaces.existingEmptySpace,
                                     connectedEmptySpaces.newAddedEmptySpace);
       this.props.unselectEmptySpace(connectedEmptySpaces.existingEmptySpace);
-    } 
+    }
     else if (emptySpace.isSelected) {
       this.props.unselectEmptySpace(emptySpace)
-    } 
+    }
     else {
       this.props.selectEmptySpace(emptySpace);
     }
@@ -51,7 +54,7 @@ class EmptySpaces extends Component {
     for (var i = 0; i < this.props.emptySpaces.length; i++) {
       var emptySpace = this.props.emptySpaces[i];
       var backgroundColor = emptySpace.isSelected ? '#1E90FF' : '#C0C0C0';
-    
+
       emptySpaceButtons.push(
         <EmptySpaceButton item={emptySpace}
                           key={emptySpace.id}
@@ -64,13 +67,13 @@ class EmptySpaces extends Component {
     return emptySpaceButtons;
   }
 
-  render() {  
+  render() {
     return (
       <div>
         {this.createEmptySpaceButtons()}
       </div>
     );
-  }  
+  }
 }
 
 function mapStateToProps(state) {

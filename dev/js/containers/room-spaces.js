@@ -1,9 +1,9 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
-import RoomSpaceButton from '../components/RoomSpaceButton';
-import {ROOM_SPACE_STATES} from '../constants';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { ROOM_SPACE_STATES } from '../constants';
 
+import RoomSpaceButton from '../components/RoomSpaceButton';
 
 class RoomSpaces extends Component {
 
@@ -14,7 +14,7 @@ class RoomSpaces extends Component {
           <RoomSpaceButton key={roomSpace.id}
                            name={roomSpace.name}
                            top={roomSpace.top}
-                           left={roomSpace.left} 
+                           left={roomSpace.left}
                            height={roomSpace.height}
                            width={roomSpace.width} />
         );
@@ -28,11 +28,11 @@ class RoomSpaces extends Component {
         {this.createRoomButtons()}
       </div>
     );
-  }  
+  }
 }
 
 function mapStateToProps(state) {
-  return {    
+  return {
     roomSpaces: state.roomSpaces,
     selectedOffice: state.selectedOffice
   };
