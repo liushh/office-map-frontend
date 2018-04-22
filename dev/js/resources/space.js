@@ -13,6 +13,12 @@ class SpaceAPI {
     }
     return client.post(url, params).then(response => response.data);
   }
+
+  getSpaces(officeId) {
+    const url = `/space/${officeId}`;
+    console.log('!!!!!!!!!!!!!!!!!!!!! = ', url);
+    return client.get(url).then(response => response.data);
+  }
 }
 
 export default SpaceAPI;
