@@ -9,8 +9,6 @@ import {
 } from '../actions/index';
 import { fetchDeskSpaceState } from '../resources/index';
 
-console.log('fetchDeskSpaceState  = ', fetchDeskSpaceState);
-
 class DeskSpaces extends Component {
 
   componentDidMount() {
@@ -54,7 +52,6 @@ class DeskSpaces extends Component {
   }
 
   render() {
-    console.log('rendering deskSpaces');
     return (
       <div>
         {this.createDeskSpaceButtons()}

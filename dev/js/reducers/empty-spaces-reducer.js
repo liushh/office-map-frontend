@@ -31,12 +31,10 @@ matrix.forEach(function(row, rowIndex) {
 });
 
 export default function (state=initialState, action) {
-
   switch(action.type) {
     case 'SELECT_EMPTY_SPACE':
       action.payload.isSelected = true;
       return updateArrayElement(state, action.payload);
-      break;
     case 'UNSELECT_EMPTY_SPACE':
       action.payload.isSelected = false;
       return updateArrayElement(state, action.payload);

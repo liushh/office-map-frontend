@@ -34,14 +34,15 @@ class EmptySpaces extends Component {
   }
 
   onButtonClicked(emptySpace) {
-    var connectedEmptySpaces = this.haveTwoSelectedEmptySpaceTogether(emptySpace);
-    if (connectedEmptySpaces) {
-      this.props.createNewDeskSpace(this.props.selectedOffice.id,
-                                    connectedEmptySpaces.existingEmptySpace,
-                                    connectedEmptySpaces.newAddedEmptySpace);
-      this.props.unselectEmptySpace(connectedEmptySpaces.existingEmptySpace);
-    }
-    else if (emptySpace.isSelected) {
+    // var connectedEmptySpaces = this.haveTwoSelectedEmptySpaceTogether(emptySpace);
+    // if (connectedEmptySpaces) {
+    //   this.props.createNewDeskSpace(this.props.selectedOffice.id,
+    //                                 connectedEmptySpaces.existingEmptySpace,
+    //                                 connectedEmptySpaces.newAddedEmptySpace);
+    //   this.props.unselectEmptySpace(connectedEmptySpaces.existingEmptySpace);
+    // }
+    console.log('emptySpace on onButtonClicked emptySpace = ', emptySpace);
+    if (emptySpace.isSelected) {
       this.props.unselectEmptySpace(emptySpace)
     }
     else {
@@ -77,6 +78,7 @@ class EmptySpaces extends Component {
 }
 
 function mapStateToProps(state) {
+  console.log('mapStateToProps selectEmptySpace = ', state.selectedEmptySpaces);
   return {
     emptySpaces: state.emptySpaces,
     selectedEmptySpaces: state.selectedEmptySpaces,
