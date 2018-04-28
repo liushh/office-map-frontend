@@ -2,7 +2,7 @@ import { client } from '../client';
 
 class SpaceAPI {
   createSpace(officeId, selectedEmptySpaces) {
-    const url = '/space';
+    const url = `/space/${officeId}`;
     const params = {
         office_id: officeId,
         owner_name: "Liusha",
@@ -16,7 +16,6 @@ class SpaceAPI {
 
   getSpaces(officeId) {
     const url = `/space/${officeId}`;
-    console.log('!!!!!!!!!!!!!!!!!!!!! = ', url);
     return client.get(url).then(response => response.data);
   }
 }

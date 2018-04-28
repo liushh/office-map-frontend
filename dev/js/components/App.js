@@ -1,9 +1,10 @@
 import React from 'react';
-import EmptySpaces from '../containers/empty-spaces'
-import DeskSpaces from '../containers/desk-spaces'
-import RoomSpaces from '../containers/room-spaces'
-import DeskInfoPopover from '../containers/desk-info-popover'
-import OfficeSelectionButtons from '../containers/office-selection-buttons'
+import EmptySpaces from '../containers/empty-spaces';
+import DeskSpaces from '../containers/desk-spaces';
+import RoomSpaces from '../containers/room-spaces';
+import DeskInfoPopover from '../containers/desk-info-popover';
+import OfficeSelectionButtons from '../containers/office-selection-buttons';
+import Spaces from '../containers/space';
 
 require('../../scss/style.scss');
 
@@ -27,13 +28,13 @@ const generalInfo = (
     <span>Help us to fill in your name in your desk</span>
     <br/>
     <span>Usage: </span>
-    <ul> 
+    <ul>
       <li>Use ctrl-f or cmd-f to search for a name</li>
       <li>Click a desk(the white spaces) to edit/delete related info</li>
       <li>Click two connected empty spaces(the grey spaces)to create a new desk</li>
     </ul>
     <span>Upcoming features: </span>
-    <ul> 
+    <ul>
       <li>Different color for available/assigned desk and rooms</li>
       <li>BambooHR integration for more information</li>
     </ul>
@@ -45,11 +46,11 @@ const generalInfo = (
 const App = () => (
   <div>
     <EmptySpaces/>
-    <DeskSpaces/>
     <RoomSpaces/>
     <DeskInfoPopover/>
     <OfficeSelectionButtons />
-  
+    <Spaces />
+
   </div>
 );
 

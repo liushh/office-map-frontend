@@ -30,9 +30,23 @@ export function fetchDeskSpaceState(callback, officeId) {
         });
 }
 
-export function updateDeskSpaceState(state, officeId) {
-  // const url = 'http://127.0.0.1:5000/desk_space_state';
-  // axios.post(url, {
+export function createSpace(selectedEmptySpaces, officeId) {
+  const url = 'http://127.0.0.1:5000/space';
+  axios.post(url, {
+            office_id: officeId,
+            owner_name: "Liusha",
+            owner_id: "owner_id",
+            team: "engineering",
+            space_type: "employee_desk",
+            basic_units: selectedEmptySpaces
+        })
+       .then(function (response) {
+          // console.log(response);
+       })
+       .catch(function (error) {
+          // console.log(error);
+       });
+  // axios.post('http://54.245.174.44/desk_space_state', {
   //         desk_space_state: state,
   //         office_id: officeId
   //       })
@@ -42,14 +56,4 @@ export function updateDeskSpaceState(state, officeId) {
   //      .catch(function (error) {
   //         // console.log(error);
   //      });
-  axios.post('http://54.245.174.44/desk_space_state', {
-          desk_space_state: state,
-          office_id: officeId
-        })
-       .then(function (response) {
-          // console.log(response);
-       })
-       .catch(function (error) {
-          // console.log(error);
-       });
 }

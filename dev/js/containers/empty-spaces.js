@@ -8,6 +8,9 @@ import {
   createNewDeskSpace
 } from '../actions/index';
 
+import { createSpace } from '../actions/space';
+
+
 import EmptySpaceButton from '../components/EmptySpaceButton'
 
 
@@ -33,19 +36,15 @@ class EmptySpaces extends Component {
     );
   }
 
+  shouldMakeASpace() {
+    return this.props.selectedEmptySpaces.length >= 4;
+  }
+
   onButtonClicked(emptySpace) {
-    // var connectedEmptySpaces = this.haveTwoSelectedEmptySpaceTogether(emptySpace);
-    // if (connectedEmptySpaces) {
-    //   this.props.createNewDeskSpace(this.props.selectedOffice.id,
-    //                                 connectedEmptySpaces.existingEmptySpace,
-    //                                 connectedEmptySpaces.newAddedEmptySpace);
-    //   this.props.unselectEmptySpace(connectedEmptySpaces.existingEmptySpace);
-    // }
-    console.log('emptySpace on onButtonClicked emptySpace = ', emptySpace);
-    if (emptySpace.isSelected) {
+  console.log('emptySpace on onButtonClicked emptySpace = ', emptySpace);
+   if (emptySpace.isSelected) {
       this.props.unselectEmptySpace(emptySpace)
-    }
-    else {
+    } else {
       this.props.selectEmptySpace(emptySpace);
     }
   }
@@ -69,6 +68,12 @@ class EmptySpaces extends Component {
   }
 
   render() {
+    if (this.shouldMakeASpace()) {
+      console.log('making a space~~~~~~~~~~~~~')
+      this.props.createSpace(this.props.selectedOffice.id,
+                             this.props.selectedEmptySpaces);
+      // this.props.clearEmptySpaces();
+    }
     return (
       <div>
         {this.createEmptySpaceButtons()}
@@ -90,7 +95,9 @@ function matchDispatchToProps(dispatch) {
   var actionCreators = {
     selectEmptySpace: selectEmptySpace,
     unselectEmptySpace: unselectEmptySpace,
-    createNewDeskSpace: createNewDeskSpace
+    createNewDeskSpace: createNewDeskSpace,
+
+    createSpace: createSpace
   };
   return bindActionCreators(actionCreators, dispatch);
 }
