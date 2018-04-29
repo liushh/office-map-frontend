@@ -7,8 +7,6 @@ import { getSpaces } from '../actions/space';
 class Spaces extends Component {
 
   componentDidMount() {
-    // getSpaces(this.props.selectedOffice.id);
-    console.log('~~~~~~~~~~~~~~~~~~~~~~~~')
     this.props.getSpaces('san_francisco');
   }
 

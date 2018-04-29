@@ -92,7 +92,6 @@ class DeskInfoPopover extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log('selectedDeskSpace = ', state.selectedDeskSpace);
   return {
     selectedDeskSpace: state.selectedDeskSpace,
     selectedOffice: state.selectedOffice

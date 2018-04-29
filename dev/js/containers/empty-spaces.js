@@ -16,17 +16,52 @@ import EmptySpaceButton from '../components/EmptySpaceButton'
 
 class EmptySpaces extends Component {
 
-  haveTwoSelectedEmptySpaceTogether(emptySpace) {
-    var connectedEmptySpaces = null;
-    this.props.selectedEmptySpaces.forEach((item) => {
-      if (this.areTwoSpacesConnected(item, emptySpace)) {
-        connectedEmptySpaces = {
-          existingEmptySpace: item,
-          newAddedEmptySpace: emptySpace
-        };
+  componentWillMount() {
+     document.addEventListener("keydown", (event) => this.handleKeydown(event), false);
+  }
+
+  componentWillUnmount() {
+     document.removeEventListener("keydown", (event) => this.handleKeydown(event));
+  }
+
+  handleKeydown(event) {
+    if (this.isEnterPressed(event) && this.props.selectedEmptySpaces) {
+        console.log('valid selected empty space set = ', this.props.selectedEmptySpaces.length);
+        this.props.createSpace(this.props.selectedOffice.id,
+                               this.props.selectedEmptySpaces);
+        // this.props.clearEmptySpaces();
+    } else {
+      console.log('invalid selected empty spaces set!!!!!!!!!!!!!')
+    }
+  }
+
+  isEnterPressed(event) {
+    return event.keyCode === 13
+  }
+
+  onButtonClicked(emptySpace) {
+   if (emptySpace.isSelected) {
+      console.log('unselected empty space');
+      this.props.unselectEmptySpace(emptySpace);
+    } else if (this.isNewSelectedEmeptySpaceConnected(emptySpace)) {
+      console.log('selected valid empty space');
+      this.props.selectEmptySpace(emptySpace);
+    }
+  }
+
+  isNewSelectedEmeptySpaceConnected(newSelectedEmptySpace) {
+    console.log('checking.... isNewSelectedEmeptySpaceConnected')
+    if (!this.props.selectedEmptySpaces || this.props.selectedEmptySpaces.length === 0) {
+      return true;
+    }
+    for (let i = 0; i < this.props.selectedEmptySpaces.length; i++) {
+      const selectedEmptySpace = this.props.selectedEmptySpaces[i];
+      if (this.areTwoSpacesConnected(selectedEmptySpace, newSelectedEmptySpace)) {
+        return true;
       }
-    });
-    return connectedEmptySpaces;
+    }
+    console.log('no existing selected space is connected with the new selected space');
+    return false;
   }
 
   areTwoSpacesConnected(space1, space2) {
@@ -36,18 +71,6 @@ class EmptySpaces extends Component {
     );
   }
 
-  shouldMakeASpace() {
-    return this.props.selectedEmptySpaces.length >= 4;
-  }
-
-  onButtonClicked(emptySpace) {
-  console.log('emptySpace on onButtonClicked emptySpace = ', emptySpace);
-   if (emptySpace.isSelected) {
-      this.props.unselectEmptySpace(emptySpace)
-    } else {
-      this.props.selectEmptySpace(emptySpace);
-    }
-  }
 
   createEmptySpaceButtons() {
     var emptySpaceButtons = [];
@@ -68,12 +91,6 @@ class EmptySpaces extends Component {
   }
 
   render() {
-    if (this.shouldMakeASpace()) {
-      console.log('making a space~~~~~~~~~~~~~')
-      this.props.createSpace(this.props.selectedOffice.id,
-                             this.props.selectedEmptySpaces);
-      // this.props.clearEmptySpaces();
-    }
     return (
       <div>
         {this.createEmptySpaceButtons()}
@@ -83,7 +100,6 @@ class EmptySpaces extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log('mapStateToProps selectEmptySpace = ', state.selectedEmptySpaces);
   return {
     emptySpaces: state.emptySpaces,
     selectedEmptySpaces: state.selectedEmptySpaces,

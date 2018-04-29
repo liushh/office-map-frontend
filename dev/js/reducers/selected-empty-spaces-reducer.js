@@ -1,5 +1,4 @@
 export default function (state=[], action) {
-  console.log('selected empty space state = ', state);
   switch(action.type) {
     case 'SELECT_EMPTY_SPACE':
       state.push(action.payload);

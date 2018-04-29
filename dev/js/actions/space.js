@@ -24,13 +24,12 @@ const createSpace = (officeId, selectedEmptySpaces) => {
   return dispatch => {
     const api = new SpaceAPI();
     return api.createSpace(officeId, selectedEmptySpaces)
-      .then(({ new_space }) => dispatch(createSpaceSuccess(new_space)))
+      .then(spaces => dispatch(createSpaceSuccess(spaces)))
       .catch(error => dispatch(createSpaceFail(error.message)));
   };
 };
 
 const getSpacesSuccess = spaces => {
-  console.log('fetched spaces = ', spaces)
   return {
     type: GET_SPACES_SUCCESS,
     payload: spaces
@@ -48,7 +47,7 @@ const getSpaces = (officeId) => {
   return dispatch => {
     const api = new SpaceAPI();
     return api.getSpaces(officeId)
-      .then((spaces) => dispatch(getSpacesSuccess(spaces)))
+      .then(spaces => dispatch(getSpacesSuccess(spaces)))
       .catch(error => dispatch(getSpacesFail(error.message)));
   };
 };
