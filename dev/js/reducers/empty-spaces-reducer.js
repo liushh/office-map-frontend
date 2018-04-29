@@ -38,7 +38,11 @@ export default function (state=initialState, action) {
     case 'UNSELECT_EMPTY_SPACE':
       action.payload.isSelected = false;
       return updateArrayElement(state, action.payload);
-      break;
+    case 'CLEAR_SELECTED_EMPTY_SPACES':
+      action.payload.forEach(item => {
+        item.isSelected = false;
+      });
+      return initialState;
   }
   return state;
 }

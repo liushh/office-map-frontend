@@ -13,6 +13,8 @@ export default function (state=[], action) {
         }
       })
       return Object.assign([], state);
+    case 'CLEAR_SELECTED_EMPTY_SPACES':
+      return []
   }
   return state;
 }

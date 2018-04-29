@@ -12,6 +12,13 @@ export const unselectEmptySpace = (emptySpace) => {
   };
 };
 
+export const clearSelectedEmptySpaces = emptySpaces => {
+  return {
+    type: 'CLEAR_SELECTED_EMPTY_SPACES',
+    payload: emptySpaces
+  };
+};
+
 export const initDeskSpaceState = (initialDeskSpaceState) => {
   return {
     type: 'INIT_DESK_SPACE_STATE',

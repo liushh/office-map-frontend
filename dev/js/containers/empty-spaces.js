@@ -5,7 +5,7 @@ import { CONSTANTS } from '../constants';
 import {
   selectEmptySpace,
   unselectEmptySpace,
-  createNewDeskSpace
+  clearSelectedEmptySpaces
 } from '../actions/index';
 
 import { createSpace } from '../actions/space';
@@ -26,12 +26,9 @@ class EmptySpaces extends Component {
 
   handleKeydown(event) {
     if (this.isEnterPressed(event) && this.props.selectedEmptySpaces) {
-        console.log('valid selected empty space set = ', this.props.selectedEmptySpaces.length);
         this.props.createSpace(this.props.selectedOffice.id,
                                this.props.selectedEmptySpaces);
-        // this.props.clearEmptySpaces();
-    } else {
-      console.log('invalid selected empty spaces set!!!!!!!!!!!!!')
+        this.props.clearSelectedEmptySpaces(this.props.selectedEmptySpaces);
     }
   }
 
@@ -41,16 +38,13 @@ class EmptySpaces extends Component {
 
   onButtonClicked(emptySpace) {
    if (emptySpace.isSelected) {
-      console.log('unselected empty space');
       this.props.unselectEmptySpace(emptySpace);
     } else if (this.isNewSelectedEmeptySpaceConnected(emptySpace)) {
-      console.log('selected valid empty space');
       this.props.selectEmptySpace(emptySpace);
     }
   }
 
   isNewSelectedEmeptySpaceConnected(newSelectedEmptySpace) {
-    console.log('checking.... isNewSelectedEmeptySpaceConnected')
     if (!this.props.selectedEmptySpaces || this.props.selectedEmptySpaces.length === 0) {
       return true;
     }
@@ -60,7 +54,6 @@ class EmptySpaces extends Component {
         return true;
       }
     }
-    console.log('no existing selected space is connected with the new selected space');
     return false;
   }
 
@@ -100,6 +93,7 @@ class EmptySpaces extends Component {
 }
 
 function mapStateToProps(state) {
+  console.log('selectedEmptySpaces = ', state.selectedEmptySpaces);
   return {
     emptySpaces: state.emptySpaces,
     selectedEmptySpaces: state.selectedEmptySpaces,
@@ -111,7 +105,7 @@ function matchDispatchToProps(dispatch) {
   var actionCreators = {
     selectEmptySpace: selectEmptySpace,
     unselectEmptySpace: unselectEmptySpace,
-    createNewDeskSpace: createNewDeskSpace,
+    clearSelectedEmptySpaces: clearSelectedEmptySpaces,
 
     createSpace: createSpace
   };
