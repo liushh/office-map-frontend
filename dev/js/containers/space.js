@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import DeskSpaceButton from '../components/DeskSpaceButton';
+import SpaceButton from '../components/SpaceButton';
 import { getSpaces } from '../actions/space';
 
 class Spaces extends Component {
@@ -25,39 +25,32 @@ class Spaces extends Component {
   //   }
   // }
 
-  createDeskSpaceButtons() {
-    // var selectedDeskSpace = this.props.selectedDeskSpace;
-    // if (this.props.deskSpaces) {
-    //   return this.props.deskSpaces.map((deskSpace) => {
-    //     var isSelected = selectedDeskSpace && selectedDeskSpace.id === deskSpace.id;
-    //     var backgroundColor = isSelected ? '#FA8072' : 'white';
-
-    //     return (
-    //       <DeskSpaceButton deskSpace={deskSpace}
-    //                        isSelected={isSelected}
-    //                        key={deskSpace.id}
-    //                        top={deskSpace.top}
-    //                        left={deskSpace.left}
-    //                        isVertical={deskSpace.isVertical}
-    //                        backgroundColor={backgroundColor}
-    //                        onButtonClicked={(deskSpace) => this.onButtonClicked(deskSpace)}/>
-    //     );
-    //   });
-    // }
+  createSpaceButtons() {
+    if (this.props.spaces) {
+      console.log('createSpaceButtons spaces = ', this.props.spaces);
+      return this.props.spaces.map((space) => {
+        return (
+          <SpaceButton space={space}/>
+        );
+      });
+    }
   }
 
   render() {
+    console.log('!!!!!!!!!!!!!!!!!');
     return (
-      <div>
-        {this.createDeskSpaceButtons()}
+      <div id='spaces'>
+        {this.createSpaceButtons()}
       </div>
     );
   }
 }
 
 function mapStateToProps(state) {
+  console.log('!!!!!!!!!!!!!!!!! ', state.spaces);
   return {
-    spaces: state.spaces
+    spaces: state.spaces,
+    selectedOffice: state.selectedOffice
   };
 }
 

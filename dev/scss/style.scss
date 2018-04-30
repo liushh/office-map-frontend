@@ -34,7 +34,7 @@
   background-color: white;
   text-align: center;
   vertical-align: middle;
-  line-height: 90px;   
+  line-height: 90px;
 }
 
 .desk-info-popover {
@@ -54,4 +54,39 @@
   }
 }
 
+.space-button {
+  position: absolute;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.border-top {
+  border-top: 1px;
+  border-top-color: white;
+  border-top-width: 1px;
+  border-top-style: solid;
+}
+
+.border-right {
+  border-right: 1px;
+  border-right-color: white;
+  border-right-width: 1px;
+  border-right-style: solid;
+}
+
+.border-bottom {
+  border-bottom: 1px;
+  border-bottom-color: white;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+}
+
+.border-left {
+  border-left: 1px;
+  border-left-color: white;
+  border-left-width: 1px;
+  border-left-style: solid;
+}
 
