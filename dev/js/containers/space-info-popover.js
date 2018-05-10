@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import {
-  updateDeskSpace,
-  unselectDeskSpace,
-  deleteDeskSpace
-} from '../actions/index';
+  updateSpace,
+  unselectSpace,
+  deleteSpace
+} from '../actions';
 
-class DeskInfoPopover extends Component {
+class SpaceInfoPopover extends Component {
 
   componentWillMount() {
      document.addEventListener("keydown", (event) => this.handleKeydown(event), false);
@@ -18,48 +18,48 @@ class DeskInfoPopover extends Component {
   }
 
   handleKeydown(event) {
-    if (this.props.selectedDeskSpace != null) {
+    if (this.props.selectedSpace != null) {
       if (event.keyCode === 13 || event.keyCode === 27) {
-        this.props.unselectDeskSpace();
+        this.props.unselectSpace();
       }
     }
   }
 
   onDeleteButtonClicked() {
-    this.props.deleteDeskSpace(this.props.selectedOffice.id, this.props.selectedDeskSpace);
-    this.props.unselectDeskSpace();
+    this.props.deleteSpace(this.props.selectedOffice.id, this.props.selectedSpace);
+    this.props.unselectSpace();
   }
 
   onSaveButtonClicked() {
-    this.props.unselectDeskSpace();
+    this.props.unselectSpace();
   }
 
   onCancelButtonClicked() {
-    this.props.unselectDeskSpace();
+    this.props.unselectSpace();
   }
 
   onNameChanged(event) {
-    this.props.selectedDeskSpace.ownerName = event.target.value;
-    this.props.updateDeskSpace(this.props.selectedOffice.id, this.props.selectedDeskSpace);
+    this.props.selectedSpace.ownerName = event.target.value;
+    this.props.updateSpace(this.props.selectedOffice.id, this.props.selectedSpace);
   }
 
   render() {
-    if (this.props.selectedDeskSpace === null) {
+    if (this.props.selectedSpace === null) {
       return null;
     }
 
     var top = 0;
-    if (this.props.selectedDeskSpace.top < 150) {
-      top = this.props.selectedDeskSpace.top + 40 + 20;
+    if (this.props.selectedSpace.top < 150) {
+      top = this.props.selectedSpace.top + 40 + 20;
     } else {
-      top = this.props.selectedDeskSpace.top - 110;
+      top = this.props.selectedSpace.top - 110;
     }
 
     var left = 0;
-    if (this.props.selectedDeskSpace.left < 100) {
-      left = this.props.selectedDeskSpace.left;
+    if (this.props.selectedSpace.left < 100) {
+      left = this.props.selectedSpace.left;
     } else {
-      left = this.props.selectedDeskSpace.left - 100;
+      left = this.props.selectedSpace.left - 100;
     }
 
     const constStyle = {
@@ -73,11 +73,11 @@ class DeskInfoPopover extends Component {
       marginRight: 20
     };
     return (
-      <div className='desk-info-popover' style={constStyle}>
+      <div className='space-info-popover' style={constStyle}>
         <div style={infoDivStyle}>
           <span>Name: </span>
           <input type='text'
-                 defaultValue={this.props.selectedDeskSpace.ownerName}
+                 defaultValue={this.props.selectedSpace.ownerName}
                  autoFocus='autofocus'
                  onChange={(event) => this.onNameChanged(event)} ></input>
           <span>(press Enter to save)</span>
@@ -93,18 +93,20 @@ class DeskInfoPopover extends Component {
 
 function mapStateToProps(state) {
   return {
-    selectedDeskSpace: state.selectedDeskSpace,
+    selectedSpace: state.selectedSpace,
     selectedOffice: state.selectedOffice
   };
 }
 
 function matchDispatchToProps(dispatch) {
+  console.log('unselectSpace = ', unselectSpace);
+  console.log('deleteSpace = ', deleteSpace);
   var actionCreators = {
-    updateDeskSpace: updateDeskSpace,
-    unselectDeskSpace: unselectDeskSpace,
-    deleteDeskSpace: deleteDeskSpace
+    updateSpace: updateSpace,
+    unselectSpace: unselectSpace,
+    deleteSpace: deleteSpace
   };
   return bindActionCreators(actionCreators, dispatch);
 }
 
-export default connect(mapStateToProps, matchDispatchToProps)(DeskInfoPopover);
+export default connect(mapStateToProps, matchDispatchToProps)(SpaceInfoPopover);

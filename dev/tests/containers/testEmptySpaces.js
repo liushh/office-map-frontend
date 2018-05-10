@@ -19,7 +19,7 @@ describe('EmptySpaces', () => {
       <Provider store={store}>
         <EmptySpaces />
       </Provider>
-    ); 
+    );
     emptySpaces = wrapper.find(EmptySpaces);
     expect(emptySpaces.length).toBeTruthy();
   })
@@ -33,12 +33,8 @@ describe('EmptySpaces', () => {
       <Provider store={store}>
         <EmptySpaces />
       </Provider>
-    ); 
+    );
     emptySpaces = wrapper.find(EmptySpaces);
-    // console.log('wrapper state = ', wrapper.state())
-
-    console.log('emptySpaces = ', emptySpaces.node);
-    console.log('emptySpaces.props() = ', emptySpaces.props());
     expect(emptySpaces.props().selectedEmptySpaces).toBeDefined();
 
   })

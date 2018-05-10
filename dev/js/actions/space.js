@@ -6,6 +6,11 @@ const CREATE_SPACE_FAIL = 'CREATE_SPACE_FAIL';
 const GET_SPACES_SUCCESS = 'GET_SPACES_SUCCESS';
 const GET_SPACES_FAIL = 'GET_SPACES_FAIL';
 
+const SELECT_SPACE = 'SELECT_SPACE';
+const UNSELECT_SPACE = 'UNSELECT_SPACE';
+const UPDATE_SPACE = 'UPDATE_SPACE';
+const DELETE_SPACE = 'DELETE_SPACE';
+
 const createSpaceSuccess = new_space => {
   return {
     type: CREATE_SPACE_SUCCESS,
@@ -52,6 +57,35 @@ const getSpaces = (officeId) => {
   };
 };
 
+const selectSpace = space => {
+  console.log('selectSpace = ', space);
+  return {
+    type: SELECT_SPACE,
+    payload: space
+  }
+};
+
+const unselectSpace = space => {
+  return {
+    type: UNSELECT_SPACE,
+    payload: space
+  }
+};
+
+const updateSpace = space => {
+  return {
+    type: UPDATE_SPACE,
+    payload: space
+  }
+};
+
+const deleteSpace = space => {
+  return {
+    type: DELETE_SPACE,
+    payload: space
+  }
+};
+
 export {
   CREATE_SPACE_SUCCESS,
   CREATE_SPACE_FAIL,
@@ -63,5 +97,17 @@ export {
   GET_SPACES_FAIL,
   getSpaces,
   getSpacesSuccess,
-  getSpacesFail
+  getSpacesFail,
+
+  SELECT_SPACE,
+  selectSpace,
+
+  unselectSpace,
+  UNSELECT_SPACE,
+
+  UPDATE_SPACE,
+  updateSpace,
+
+  DELETE_SPACE,
+  deleteSpace
 };
