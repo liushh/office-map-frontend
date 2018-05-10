@@ -6,7 +6,7 @@ import {
   selectEmptySpace,
   unselectEmptySpace,
   clearSelectedEmptySpaces
-} from '../actions/index';
+} from '../actions';
 
 import { createSpace } from '../actions/space';
 
