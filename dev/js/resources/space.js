@@ -2,7 +2,7 @@ import { client } from '../client';
 
 class SpaceAPI {
   createSpace(officeId, selectedEmptySpaces) {
-    const url = `/space/${officeId}`;
+    const url = `/space`;
     const params = {
         office_id: officeId,
         owner_name: "Liusha",
@@ -15,17 +15,13 @@ class SpaceAPI {
   }
 
   getSpaces(officeId) {
-    const url = `/space/${officeId}`;
+    const url = `/spaces/${officeId}`;
     return client.get(url).then(response => response.data);
   }
 
   deleteSpace(officeId, selectedSpaceId) {
-    const url = `/space/${officeId}`;
-    const params = {
-        office_id: officeId,
-        space_id: selectedSpaceId
-    }
-    return client.delete(url, params).then(response => response.data);
+    const url = `/space/${selectedSpaceId}`;
+    return client.delete(url).then(response => response.data);
   }
 }
 

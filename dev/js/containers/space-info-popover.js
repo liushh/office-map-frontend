@@ -26,7 +26,7 @@ class SpaceInfoPopover extends Component {
   }
 
   onDeleteButtonClicked() {
-    this.props.deleteSpace(this.props.selectedOffice.id, this.props.selectedSpace);
+    this.props.deleteSpace(this.props.selectedOffice.id, this.props.selectedSpace.id);
     this.props.unselectSpace();
   }
 
