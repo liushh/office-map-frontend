@@ -1,6 +1,5 @@
 import React from 'react';
 import EmptySpaces from '../containers/empty-spaces';
-import DeskSpaces from '../containers/desk-spaces';
 import RoomSpaces from '../containers/room-spaces';
 import SpaceInfoPopover from '../containers/space-info-popover';
 import OfficeSelectionButtons from '../containers/office-selection-buttons';
