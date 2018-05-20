@@ -50,7 +50,7 @@ class SpaceInfoPopover extends Component {
   }
 
   onOnwerNameChanged(event) {
-    this.props.selectedSpace.ownerName = event.target.value;
+    this.props.selectedSpace.owner_name = event.target.value;
     this.props.updateSpace(this.props.selectedSpace);
   }
 
