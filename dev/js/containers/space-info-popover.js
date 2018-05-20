@@ -77,7 +77,7 @@ class SpaceInfoPopover extends Component {
         <div style={infoDivStyle}>
           <span>Name: </span>
           <input type='text'
-                 defaultValue={this.props.selectedSpace.ownerName}
+                 defaultValue={this.props.selectedSpace.owner_name}
                  autoFocus='autofocus'
                  onChange={(event) => this.onNameChanged(event)} ></input>
           <span>(press Enter to save)</span>
@@ -99,8 +99,6 @@ function mapStateToProps(state) {
 }
 
 function matchDispatchToProps(dispatch) {
-  console.log('unselectSpace = ', unselectSpace);
-  console.log('deleteSpace = ', deleteSpace);
   var actionCreators = {
     updateSpace: updateSpace,
     unselectSpace: unselectSpace,

@@ -50,7 +50,6 @@ const App = () => (
     <OfficeSelectionButtons />
     <Spaces />
     <SpaceInfoPopover/>
-
   </div>
 );
 

@@ -31,8 +31,11 @@ import {
   UPDATE_SPACE,
   updateSpace,
 
-  DELETE_SPACE,
-  deleteSpace
+  DELETE_SPACE_SUCCESS,
+  DELETE_SPACE_FAIL,
+  deleteSpace,
+  deleteSpaceSuccess,
+  deleteSpaceFail
 } from './space';
 
 export {
@@ -64,6 +67,9 @@ export {
   UPDATE_SPACE,
   updateSpace,
 
-  DELETE_SPACE,
-  deleteSpace
+  DELETE_SPACE_SUCCESS,
+  DELETE_SPACE_FAIL,
+  deleteSpace,
+  deleteSpaceSuccess,
+  deleteSpaceFail
 }

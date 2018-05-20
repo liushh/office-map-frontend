@@ -11,7 +11,6 @@ class SpaceButton extends Component {
     this.maxHeight = 0;
   }
 
-
   buildUnitLocationSet() {
     let set = new Set([]);
     this.props.space.basic_units.forEach(unit => {

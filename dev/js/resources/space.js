@@ -18,6 +18,15 @@ class SpaceAPI {
     const url = `/space/${officeId}`;
     return client.get(url).then(response => response.data);
   }
+
+  deleteSpace(officeId, selectedSpaceId) {
+    const url = `/space/${officeId}`;
+    const params = {
+        office_id: officeId,
+        space_id: selectedSpaceId
+    }
+    return client.delete(url, params).then(response => response.data);
+  }
 }
 
 export default SpaceAPI;

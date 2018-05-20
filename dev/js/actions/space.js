@@ -8,8 +8,11 @@ const GET_SPACES_FAIL = 'GET_SPACES_FAIL';
 
 const SELECT_SPACE = 'SELECT_SPACE';
 const UNSELECT_SPACE = 'UNSELECT_SPACE';
+
 const UPDATE_SPACE = 'UPDATE_SPACE';
-const DELETE_SPACE = 'DELETE_SPACE';
+
+const DELETE_SPACE_SUCCESS = 'DELETE_SPACE_SUCCESS';
+const DELETE_SPACE_FAIL = 'DELETE_SPACE_FAIL';
 
 const createSpaceSuccess = new_space => {
   return {
@@ -79,11 +82,27 @@ const updateSpace = space => {
   }
 };
 
-const deleteSpace = space => {
+const deleteSpaceSuccess = spaces => {
   return {
-    type: DELETE_SPACE,
-    payload: space
-  }
+    type: DELETE_SPACE_SUCCESS,
+    payload: spaces
+  };
+};
+
+const deleteSpaceFail = errorMessage => {
+  return {
+    type: DELETE_SPACE_FAIL,
+    payload: errorMessage
+  };
+};
+
+const deleteSpace = (officeId, selectedSpaceId) => {
+  return dispatch => {
+    const api = new SpaceAPI();
+    return api.deleteSpace(officeId, selectedSpaceId)
+      .then(spaces => dispatch(deleteSpaceSuccess(spaces)))
+      .catch(error => dispatch(deleteSpaceFail(error.message)));
+  };
 };
 
 export {
@@ -108,6 +127,9 @@ export {
   UPDATE_SPACE,
   updateSpace,
 
-  DELETE_SPACE,
-  deleteSpace
+  DELETE_SPACE_SUCCESS,
+  DELETE_SPACE_FAIL,
+  deleteSpace,
+  deleteSpaceSuccess,
+  deleteSpaceFail
 };
