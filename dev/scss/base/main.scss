@@ -1,0 +1,94 @@
+@import 'colors';
+@import 'typography';
+@import 'layout';
+@import 'text';
+@import 'padding';
+@import 'margin';
+@import 'border';
+@import 'images';
+
+.font {
+  font-family: ProximaNova;
+  font-size: 12px;
+  line-height: 1.33;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  text-align: left;
+  color: $charcoal-grey;
+}
+
+.space-between {
+  @extend .flex;
+  justify-content: space-between;
+}
+
+.inverted {
+  color: $white;
+}
+
+.form-field {
+  @extend .margin-bottom-24;
+
+  input {
+    width: 50%;
+  }
+}
+
+h4 {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+h1, h2, h3 {
+  margin-top: 0;
+  line-height: 24px;
+}
+
+h1 {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+h2 {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+h3 {
+  font-size: 16px;
+  font-weight: 500;
+} 
+
+p {
+  font-size: 14px;
+  line-height: 20px;
+  margin: 16px 0;
+  &.lead {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: $dark-sky-blue;
+}
+
+label {
+  @extend .margin-vertical-8;
+  display: block;
+  line-height: 16px;
+  font-weight: 600;
+}
+
+html, body {
+  @extend .font;
+  background-color: $pale-grey-four;
+  margin: 0;
+  height: 100%;
+}
+
+button {
+  border-style: none;
+}

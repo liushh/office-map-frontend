@@ -1,3 +1,6 @@
+@import 'dropdown';
+@import 'base/main';
+
 .map-item-button {
   position: absolute;
   border-radius: 0;
@@ -40,7 +43,7 @@
 .space-info-popover {
   position: absolute;
   width: 190px;
-  height: 70px;
+  height: 200px;
 
   borderRadius: 0;
   background-color: white;
@@ -50,7 +53,7 @@
   padding: 10px;
 
   .info {
-    margine-button: 15px;
+    margin-bottom: 10px;
   }
 }
 
@@ -96,4 +99,9 @@
   border-left-width: 1px;
   border-left-style: solid;
 }
+
+
+
+
+
 

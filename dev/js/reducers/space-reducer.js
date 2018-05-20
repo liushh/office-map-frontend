@@ -1,4 +1,3 @@
-import { createNewSpace } from '../resources/index'
 import {
     CREATE_SPACE_SUCCESS,
     CREATE_SPACE_FAIL,
