@@ -5,13 +5,28 @@ class SpaceAPI {
     const url = `/space`;
     const params = {
         office_id: officeId,
-        owner_name: "Liusha",
-        owner_id: "owner_id",
-        team: "engineering",
-        space_type: "employee_desk",
+        owner_name: "",
+        owner_id: "",
+        team: "Engineering",
+        space_type: "Employee Desk",
         basic_units: selectedEmptySpaces
     }
     return client.post(url, params).then(response => response.data);
+  }
+
+  updateSpace(selectedSpace) {
+    console.log('updating space = ', selectedSpace);
+    const url = `/space/${selectedSpace.id}`;
+    const params = {
+        id: selectedSpace.id,
+        office_id: selectedSpace.office_id,
+        owner_name: selectedSpace.owner_name,
+        owner_id: selectedSpace.owner_id,
+        team: selectedSpace.team,
+        space_type: selectedSpace.space_type,
+        project: selectedSpace.project,
+    }
+    return client.patch(url, params).then(response => response.data);
   }
 
   getSpaces(officeId) {

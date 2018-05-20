@@ -9,7 +9,13 @@ import {
   deleteSpace
 } from '../actions';
 
-const spaceTypes = ['Employee', 'Empty', 'Visitor'];
+const spaceTypes = [
+    'Employee Desk',
+    'Empty Desk',
+    'Visitor Desk',
+    'Meeting Room'
+  ];
+
 const teams = ['Engineering', 'UX', 'Marketing', 'Finance']; // TODO: fetch teams from database
 
 class SpaceInfoPopover extends Component {

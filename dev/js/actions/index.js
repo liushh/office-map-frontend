@@ -28,14 +28,17 @@ import {
   unselectSpace,
   UNSELECT_SPACE,
 
-  UPDATE_SPACE,
-  updateSpace,
-
   DELETE_SPACE_SUCCESS,
   DELETE_SPACE_FAIL,
   deleteSpace,
   deleteSpaceSuccess,
-  deleteSpaceFail
+  deleteSpaceFail,
+
+  UPDATE_SPACE_SUCCESS,
+  UPDATE_SPACE_FAIL,
+  updateSpace,
+  updateSpaceSuccess,
+  updateSpaceFail,
 } from './space';
 
 export {
@@ -64,8 +67,11 @@ export {
   unselectSpace,
   UNSELECT_SPACE,
 
-  UPDATE_SPACE,
+  UPDATE_SPACE_SUCCESS,
+  UPDATE_SPACE_FAIL,
   updateSpace,
+  updateSpaceSuccess,
+  updateSpaceFail,
 
   DELETE_SPACE_SUCCESS,
   DELETE_SPACE_FAIL,
