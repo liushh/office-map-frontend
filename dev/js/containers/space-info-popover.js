@@ -74,7 +74,7 @@ class SpaceInfoPopover extends Component {
   }
 
   onProjectChanged(event) {
-    this.props.selectedSpace.prject = event.target.value;
+    this.props.selectedSpace.project = event.target.value;
     this.props.updateSpace(this.props.selectedSpace);
   }
 
@@ -139,7 +139,7 @@ class SpaceInfoPopover extends Component {
           <span>Project: </span>
           <input type='text'
                  defaultValue={this.props.selectedSpace.project}
-                 onChange={(event) => this.onNameChanged(event)} ></input>
+                 onChange={(event) => this.onProjectChanged(event)} ></input>
         </div>
 
 

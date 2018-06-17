@@ -15,7 +15,6 @@ class SpaceAPI {
   }
 
   updateSpace(selectedSpace) {
-    console.log('updating space = ', selectedSpace);
     const url = `/space/${selectedSpace.id}`;
     const params = {
         id: selectedSpace.id,
