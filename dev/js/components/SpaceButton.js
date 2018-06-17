@@ -1,6 +1,12 @@
 import React, {Component} from 'react';
-import { CONSTANTS } from '../constants';
+import { CONSTANTS , SPACE_TYPES } from '../constants';
 import classNames from 'classnames'
+
+
+const spaceTypeTobackgroundColor = {};
+SPACE_TYPES.forEach(spaceType => {
+  spaceTypeTobackgroundColor[spaceType.name] = spaceType.backgroundColor;
+});
 
 class SpaceButton extends Component {
   constructor(props) {
@@ -55,11 +61,12 @@ class SpaceButton extends Component {
         width: CONSTANTS.EMPTY_SPACE_SIZE,
         height: CONSTANTS.EMPTY_SPACE_SIZE,
         top: basicUnit.top,
-        left: basicUnit.left
+        left: basicUnit.left,
+        backgroundColor: spaceTypeTobackgroundColor[space.space_type]
       };
 
       const isMeetingRoom = space.space_type === 'Meeting Room';
-      const borderClasses = classNames(
+      const customClassName = classNames(
         {
 
           'space-button': !isMeetingRoom,
@@ -72,7 +79,7 @@ class SpaceButton extends Component {
       );
       return (
         <div
-          className={borderClasses}
+          className={customClassName}
           key={index}
           style={constStyle}
           onClick={() => this.props.selectSpace(this.props.space)}/>

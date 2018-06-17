@@ -41,7 +41,7 @@ class EmptySpaces extends Component {
   }
 
   hasSelectedEmptySpaces() {
-    this.props.selectedEmptySpaces
+    return this.props.selectedEmptySpaces && this.props.selectedEmptySpaces.length > 0;
   }
 
   onButtonClicked(emptySpace) {

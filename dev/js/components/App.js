@@ -1,6 +1,5 @@
 import React from 'react';
 import EmptySpaces from '../containers/empty-spaces';
-import RoomSpaces from '../containers/room-spaces';
 import SpaceInfoPopover from '../containers/space-info-popover';
 import OfficeSelectionButtons from '../containers/office-selection-buttons';
 import Spaces from '../containers/space';
@@ -45,7 +44,6 @@ const generalInfo = (
 const App = () => (
   <div>
     <EmptySpaces/>
-    <RoomSpaces/>
     <OfficeSelectionButtons />
     <Spaces />
     <SpaceInfoPopover/>

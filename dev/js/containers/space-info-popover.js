@@ -8,14 +8,9 @@ import {
   unselectSpace,
   deleteSpace
 } from '../actions';
+import { SPACE_TYPES } from '../constants';
 
-const spaceTypes = [
-    'Employee Desk',
-    'Empty Desk',
-    'Visitor Desk',
-    'Meeting Room',
-    'Name Tag'
-  ];
+const spaceTypes = SPACE_TYPES.map(space_type => space_type.name);
 
 const teams = ['Engineering', 'UX', 'Marketing', 'Finance']; // TODO: fetch teams from database
 
