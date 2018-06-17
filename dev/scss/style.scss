@@ -29,23 +29,17 @@
 .room {
   position: absolute;
   border-radius: 0;
-  border-color: #808080;
-  border-width: 1px;
-  border-style: solid;
-
+  border-width: 2px;
+  pointer-events: none;
   overflow: hidden;
-  background-color: white;
-  text-align: center;
-  vertical-align: middle;
-  line-height: 90px;
+  background-color: transparent;
 }
 
 .space-info-popover {
   position: absolute;
   width: 190px;
   height: 200px;
-
-  borderRadius: 0;
+  border-radius: 0;
   background-color: white;
   border-color: #808080;
   border-width: 1px;
@@ -59,7 +53,7 @@
 
 .space-button {
   position: absolute;
-
+  background-color: red;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -67,9 +61,10 @@
 
 .space-button-title {
   position: absolute;
-
+  pointer-events: none;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-size: 11px;
 }
 
 .border-top {

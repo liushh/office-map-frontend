@@ -15,6 +15,10 @@ import EmptySpaceButton from '../components/EmptySpaceButton'
 
 
 class EmptySpaces extends Component {
+  constructor(props) {
+    super(props);
+
+  }
 
   componentWillMount() {
      document.addEventListener("keydown", (event) => this.handleKeydown(event), false);

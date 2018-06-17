@@ -13,7 +13,8 @@ const spaceTypes = [
     'Employee Desk',
     'Empty Desk',
     'Visitor Desk',
-    'Meeting Room'
+    'Meeting Room',
+    'Name Tag'
   ];
 
 const teams = ['Engineering', 'UX', 'Marketing', 'Finance']; // TODO: fetch teams from database

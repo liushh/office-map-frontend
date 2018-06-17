@@ -15,10 +15,10 @@ const UPDATE_SPACE_FAIL = 'UPDATE_SPACE_FAIL';
 const DELETE_SPACE_SUCCESS = 'DELETE_SPACE_SUCCESS';
 const DELETE_SPACE_FAIL = 'DELETE_SPACE_FAIL';
 
-const createSpaceSuccess = new_space => {
+const createSpaceSuccess = newSpaces => {
   return {
     type: CREATE_SPACE_SUCCESS,
-    payload: new_space
+    payload: newSpaces
   };
 };
 
@@ -33,7 +33,7 @@ const createSpace = (officeId, selectedEmptySpaces) => {
   return dispatch => {
     const api = new SpaceAPI();
     return api.createSpace(officeId, selectedEmptySpaces)
-      .then(spaces => dispatch(createSpaceSuccess(spaces)))
+      .then(newSpaces => dispatch(createSpaceSuccess(newSpaces)))
       .catch(error => dispatch(createSpaceFail(error.message)));
   };
 };
@@ -62,7 +62,6 @@ const getSpaces = (officeId) => {
 };
 
 const selectSpace = space => {
-  console.log('selectSpace = ', space);
   return {
     type: SELECT_SPACE,
     payload: space

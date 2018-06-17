@@ -12,31 +12,38 @@ class SpaceButton extends Component {
   }
 
   buildUnitLocationSet() {
+    this.setMinTopAndMinLeft();
+
     let set = new Set([]);
     this.props.space.basic_units.forEach(unit => {
       set.add(unit.top + '-' + unit.left);
+        if (unit.left - this.minLeft > this.maxWidth) {
+          this.maxWidth = unit.left - this.minLeft + CONSTANTS.EMPTY_SPACE_SIZE;
+        }
+        if (unit.top - this.minTop > this.maxHeight) {
+          this.maxHeight = unit.top - this.minTop
+        }
+    });
+    return set;
+  }
 
+  setMinTopAndMinLeft() {
+    this.props.space.basic_units.forEach(unit => {
       if (unit.top < this.minTop) {
         this.minTop = unit.top;
       }
       if (unit.left < this.minLeft) {
         this.minLeft = unit.left;
       }
-      if (unit.left - this.minLeft > this.maxWidth) {
-        this.maxWidth = unit.left - this.minLeft;
-      }
-      if (unit.top - this.minTop > this.maxHeight) {
-        this.maxHeight = unit.top - this.minTop
-      }
     });
-    return set;
   }
 
   basicUnits() {
     const unitLocationSet = this.buildUnitLocationSet();
-    this.props.space.top = this.minTop;
-    this.props.space.left = this.minLeft;
-    return this.props.space.basic_units.map((basicUnit, index) => {
+    const space = this.props.space;
+    space.top = this.minTop;
+    space.left = this.minLeft;
+    return space.basic_units.map((basicUnit, index) => {
       const top = basicUnit.top;
       const left = basicUnit.left;
       const locationOnTheTop = unitLocationSet.has((top - CONSTANTS.EMPTY_SPACE_SIZE)  + '-' + left);
@@ -48,13 +55,15 @@ class SpaceButton extends Component {
         width: CONSTANTS.EMPTY_SPACE_SIZE,
         height: CONSTANTS.EMPTY_SPACE_SIZE,
         top: basicUnit.top,
-        left: basicUnit.left,
-        backgroundColor: 'red',
+        left: basicUnit.left
       };
 
+      const isMeetingRoom = space.space_type === 'Meeting Room';
       const borderClasses = classNames(
-        'space-button',
         {
+
+          'space-button': !isMeetingRoom,
+          'room': isMeetingRoom,
           'border-top': !locationOnTheTop,
           'border-right': !locationOnTheRight,
           'border-bottom': !locationOnTheBottom,
@@ -72,15 +81,18 @@ class SpaceButton extends Component {
   }
 
   spaceTitle() {
+    if (this.props.space.space_type === 'Meeting Room') {
+      return null;
+    }
     const constStyle = {
-      width: this.maxWidth + CONSTANTS.EMPTY_SPACE_SIZE,
-      height: CONSTANTS.EMPTY_SPACE_SIZE * 2,
-      top: this.minTop + ((this.maxHeight / CONSTANTS.EMPTY_SPACE_SIZE) / 2).toFixed(0) * CONSTANTS.EMPTY_SPACE_SIZE - CONSTANTS.EMPTY_SPACE_SIZE,
-      left: this.minLeft + ((this.maxWidth / CONSTANTS.EMPTY_SPACE_SIZE) / 2).toFixed(0) * CONSTANTS.EMPTY_SPACE_SIZE - CONSTANTS.EMPTY_SPACE_SIZE,
+      width: this.maxWidth,
+      height: CONSTANTS.EMPTY_SPACE_SIZE,
+      top: this.minTop,
+      left: this.minLeft,
     };
     return (
-      <div className={'space-button-title'} style={constStyle}>
-      {'space name'}
+      <div className='space-button-title' style={constStyle}>
+      {this.props.space.owner_name}
       </div>
     );
   }
@@ -89,7 +101,7 @@ class SpaceButton extends Component {
     return (
       <div>
         {this.basicUnits()}
-        {/*this.spaceTitle()*/}
+        {this.spaceTitle()}
       </div>
     );
   }
