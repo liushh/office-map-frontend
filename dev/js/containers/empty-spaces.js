@@ -29,10 +29,10 @@ class EmptySpaces extends Component {
   }
 
   handleKeydown(event) {
-    if (this.isEnterPressed(event) && this.props.selectedEmptySpaces) {
-        this.props.createSpace(this.props.selectedOffice.id,
-                               this.props.selectedEmptySpaces);
-        this.props.clearSelectedEmptySpaces(this.props.selectedEmptySpaces);
+    if (this.isEnterPressed(event) && this.hasSelectedEmptySpaces()) {
+      this.props.createSpace(this.props.selectedOffice.id,
+                              this.props.selectedEmptySpaces);
+      this.props.clearSelectedEmptySpaces(this.props.selectedEmptySpaces);
     }
   }
 
@@ -40,8 +40,12 @@ class EmptySpaces extends Component {
     return event.keyCode === 13
   }
 
+  hasSelectedEmptySpaces() {
+    this.props.selectedEmptySpaces
+  }
+
   onButtonClicked(emptySpace) {
-   if (emptySpace.isSelected) {
+    if (emptySpace.isSelected) {
       this.props.unselectEmptySpace(emptySpace);
     } else if (this.isNewSelectedEmeptySpaceConnected(emptySpace)) {
       this.props.selectEmptySpace(emptySpace);

@@ -31,10 +31,18 @@ class SpaceInfoPopover extends Component {
 
   handleKeydown(event) {
     if (this.props.selectedSpace != null) {
-      if (event.keyCode === 13 || event.keyCode === 27) {
+      if (this.isEnterPressed(event) || this.isESCPressed(event)) {
         this.props.unselectSpace();
       }
     }
+  }
+
+  isEnterPressed(event) {
+    return event.keyCode === 13;
+  }
+
+  isESCPressed(event) {
+    return event.keyCode === 27;
   }
 
   onDeleteButtonClicked() {
@@ -74,7 +82,7 @@ class SpaceInfoPopover extends Component {
     if (this.props.selectedSpace === null) {
       return null;
     }
-
+    
     var top = 0;
     if (this.props.selectedSpace.top < 220) {
       top = this.props.selectedSpace.top + 40 + 100;
