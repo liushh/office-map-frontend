@@ -23,11 +23,13 @@ class OfficeSelectionButtons extends Component {
 
   render() {
     return (
-      <Dropdown
-          options={this.office_names}
-          onChange={(option) => this.selectOffce(option)}
-          value={this.props.selectedOffice.name}
-      />
+      <div className='office-dropdown'>
+        <Dropdown
+            options={this.office_names}
+            onChange={(option) => this.selectOffce(option)}
+            value={this.props.selectedOffice.name}
+        />
+      </div>
     );
   }
 }
