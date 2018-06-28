@@ -31,12 +31,12 @@ export const SPACE_TYPES = [
 
 export const OFFICE_STATES = [
     {
-        name: 'Wizeline1(GDL)',
+        name: 'Wizeline GDL 1',
         id: WL1_OFFICE_ID,
         isSelected: false
     },
     {
-        name: 'Wizeline2(GDL)',
+        name: 'Wizeline GDL 2',
         id: WL2_OFFICE_ID,
         isSelected: true
     },

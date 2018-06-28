@@ -21,13 +21,13 @@ class OfficeSelectionButton extends Component {
       verticalAlign: 'middle'
     };
     return (
-      <div key={this.props.office.id} 
+      <div key={this.props.office.id}
            style={constStyle}
            onClick={() => this.props.onButtonClicked(this.props.office)}>
         {this.props.office.name}
       </div>
     );
-  }  
+  }
 }
 
-export default OfficeSelectionButton; 
+export default OfficeSelectionButton;

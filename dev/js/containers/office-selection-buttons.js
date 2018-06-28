@@ -1,61 +1,46 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import {
-  updateOffices,
-  selectOffice
-} from '../actions/index';
+import { selectOffice } from '../actions/index';
+import Dropdown from 'react-dropdown'
+import {OFFICE_STATES} from '../constants';
 
-import OfficeSelectionButton from '../components/OfficeSelectionButton';
 
 class OfficeSelectionButtons extends Component {
+  constructor(props) {
+    super(props);
 
-  onButtonClicked(office) {
-    this.props.offices.forEach((currentOffice) => {
-      if (office.id === currentOffice.id) {
-        currentOffice.isSelected = true;
-      } else {
-        currentOffice.isSelected = false;
-      }
-    });
-    this.props.updateOffices(this.props.offices);
-    this.props.selectOffice(office);
+    this.office_names = OFFICE_STATES.map(office => office.name);
+    this.offices_map = {};
+    this.offices_map[OFFICE_STATES[0].name] = OFFICE_STATES[0];
+    this.offices_map[OFFICE_STATES[1].name] = OFFICE_STATES[1];
+    this.offices_map[OFFICE_STATES[2].name] = OFFICE_STATES[2];
   }
 
-  createOfficeSelectionButtons() {
-    if (this.props.offices) {
-      return this.props.offices.map((office, index) => {
-        return (
-          <OfficeSelectionButton office={office}
-                                 key={office.id}
-                                 index={index}
-                                 isSelected={office.isSelected}
-                                 onButtonClicked={(office) => this.onButtonClicked(office)}/>
-        );
-      });
-    }
+  selectOffce(option) {
+    this.props.selectOffice(this.offices_map[option.value]);
   }
 
   render() {
     return (
-      <div>
-        {this.createOfficeSelectionButtons()}
-      </div>
+      <Dropdown
+          options={this.office_names}
+          onChange={(option) => this.selectOffce(option)}
+          value={this.props.selectedOffice.name}
+      />
     );
   }
 }
 
 function mapStateToProps(state) {
   return {
-    offices: state.offices,
     selectedOffice: state.selectedOffice
   };
 }
 
 function matchDispatchToProps(dispatch) {
   var actionCreators = {
-    selectOffice: selectOffice,
-    updateOffices: updateOffices
+    selectOffice: selectOffice
   };
   return bindActionCreators(actionCreators, dispatch);
 }

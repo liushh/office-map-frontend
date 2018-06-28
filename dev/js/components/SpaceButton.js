@@ -11,10 +11,6 @@ SPACE_TYPES.forEach(spaceType => {
 class SpaceButton extends Component {
   constructor(props) {
     super(props);
-    this.minTop = 10000;
-    this.minLeft = 10000;
-    this.maxWidth = 0;
-    this.maxHeight = 0;
   }
 
   buildUnitLocationSet() {
@@ -105,6 +101,10 @@ class SpaceButton extends Component {
   }
 
   render() {
+    this.minTop = 10000;
+    this.minLeft = 10000;
+    this.maxWidth = 0;
+    this.maxHeight = 0;
     return (
       <div>
         {this.basicUnits()}
