@@ -27,6 +27,7 @@ class SpaceInfoPopover extends Component {
   handleKeydown(event) {
     if (this.props.selectedSpace != null) {
       if (this.isEnterPressed(event) || this.isESCPressed(event)) {
+        this.props.updateSpace(this.props.selectedSpace);
         this.props.unselectSpace();
       }
     }
@@ -46,6 +47,7 @@ class SpaceInfoPopover extends Component {
   }
 
   onSaveButtonClicked() {
+    this.props.updateSpace(this.props.selectedSpace);
     this.props.unselectSpace();
   }
 
@@ -55,34 +57,30 @@ class SpaceInfoPopover extends Component {
 
   onOnwerNameChanged(event) {
     this.props.selectedSpace.owner_name = event.target.value;
-    this.props.updateSpace(this.props.selectedSpace);
   }
 
   onTeamChanged(option) {
     this.props.selectedSpace.team = option.label;
-    this.props.updateSpace(this.props.selectedSpace);
   }
 
   onSpaceTypeChanged(option) {
     this.props.selectedSpace.space_type = option.label;
-    this.props.updateSpace(this.props.selectedSpace);
   }
 
   onProjectChanged(event) {
     this.props.selectedSpace.project = event.target.value;
-    this.props.updateSpace(this.props.selectedSpace);
   }
 
   render() {
     if (this.props.selectedSpace === null) {
       return null;
     }
-    
+
     var top = 0;
-    if (this.props.selectedSpace.top < 220) {
-      top = this.props.selectedSpace.top + 40 + 100;
+    if (this.props.selectedSpace.top < 300) {
+      top = this.props.selectedSpace.top + 30;
     } else {
-      top = this.props.selectedSpace.top - 180;
+      top = this.props.selectedSpace.top - 220;
     }
 
     var left = 0;
