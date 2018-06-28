@@ -9,7 +9,7 @@ import {
 
 class Spaces extends Component {
   componentDidMount() {
-    this.props.getSpaces('san_francisco');
+    this.props.getSpaces(this.props.selectedOffice.id);
   }
 
   componentWillReceiveProps(nextProps) {

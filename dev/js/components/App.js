@@ -43,7 +43,7 @@ const generalInfo = (
 
 const App = () => (
   <div>
-    <EmptySpaces/>
+    <EmptySpaces />
     <OfficeSelectionButtons />
     <Spaces />
     <SpaceInfoPopover/>
