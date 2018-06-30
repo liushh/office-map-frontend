@@ -10,6 +10,10 @@ import {
 } from './office';
 
 import {
+  toggleRoomEditingMode
+} from './edit-room';
+
+import {
   CREATE_SPACE_SUCCESS,
   CREATE_SPACE_FAIL,
   createSpace,
@@ -48,6 +52,8 @@ export {
 
   selectOffice,
   updateOffices,
+
+  toggleRoomEditingMode,
 
   CREATE_SPACE_SUCCESS,
   CREATE_SPACE_FAIL,

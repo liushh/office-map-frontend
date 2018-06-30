@@ -6,6 +6,7 @@ import officesReducer from './offices-reducer';
 import selectedOfficeReducer from './selected-office-reducer';
 import spaceReducer from './space-reducer';
 import selectedSpaceReducer from './selected-space-reducer';
+import editRoomReducer from './edit-room-reducer';
 
 const allReducers = combineReducers({
   emptySpaces: emptySpacesReducer,
@@ -13,7 +14,8 @@ const allReducers = combineReducers({
   offices: officesReducer,
   selectedOffice: selectedOfficeReducer,
   spaces: spaceReducer,
-  selectedSpace: selectedSpaceReducer
+  selectedSpace: selectedSpaceReducer,
+  isRoomEditingMode: editRoomReducer
 });
 
 export default allReducers;

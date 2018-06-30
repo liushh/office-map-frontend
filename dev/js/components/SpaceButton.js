@@ -64,9 +64,9 @@ class SpaceButton extends Component {
       const isMeetingRoom = space.space_type === 'Meeting Room';
       const customClassName = classNames(
         {
-
           'space-button': !isMeetingRoom,
-          'room': isMeetingRoom,
+          'room': isMeetingRoom && !this.props.isRoomEditingMode,
+          'editing-mode-room': isMeetingRoom && this.props.isRoomEditingMode,
           'border-top': !locationOnTheTop,
           'border-right': !locationOnTheRight,
           'border-bottom': !locationOnTheBottom,
@@ -84,9 +84,6 @@ class SpaceButton extends Component {
   }
 
   spaceTitle() {
-    if (this.props.space.space_type === 'Meeting Room') {
-      return null;
-    }
     const constStyle = {
       width: this.maxWidth,
       height: CONSTANTS.EMPTY_SPACE_SIZE,

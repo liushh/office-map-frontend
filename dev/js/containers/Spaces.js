@@ -25,7 +25,9 @@ class Spaces extends Component {
           <SpaceButton
             key={index}
             space={space}
-            selectSpace={this.props.selectSpace} />
+            selectSpace={this.props.selectSpace}
+            isRoomEditingMode={this.props.isRoomEditingMode}
+          />
         );
       });
     }
@@ -42,6 +44,7 @@ class Spaces extends Component {
 
 function mapStateToProps(state) {
   return {
+    isRoomEditingMode: state.isRoomEditingMode,
     spaces: state.spaces,
     selectedOffice: state.selectedOffice
   };

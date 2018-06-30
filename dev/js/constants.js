@@ -20,8 +20,7 @@ export const SPACE_TYPES = [
         backgroundColor: 'blue'
     },
     {
-        name: 'Meeting Room',
-        backgroundColor: 'transparent'
+        name: 'Meeting Room'
     },
     {
         name: 'Name Tag',

@@ -26,15 +26,6 @@
   width: 40px;
 }
 
-.room {
-  position: absolute;
-  border-radius: 0;
-  border-width: 2px;
-  pointer-events: none;
-  overflow: hidden;
-  background-color: transparent;
-}
-
 .space-info-popover {
   position: absolute;
   width: 190px;
@@ -52,6 +43,7 @@
 }
 
 .office-dropdown {
+  @extend .inline-block;
   @extend .margin-8;
 
   position: absolute;
@@ -59,11 +51,45 @@
   height: 200px;
 }
 
+.edit-room-button {
+  @extend .inline-block;
+  @extend .margin-top-8;
+
+  text-align: center;
+  margin-left: 208px;
+  border-radius: 1px;
+  border-color: #808080;
+  border-width: 1px;
+  border-style: solid;
+  position: absolute;
+  width: 190px;
+  height: 30px;
+  font-size: 18px;
+}
+
 .space-button {
   position: absolute;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.room {
+  position: absolute;
+  border-radius: 0;
+  border-width: 2px;
+  pointer-events: none;
+  overflow: hidden;
+  background-color: transparent;
+}
+
+.editing-mode-room {
+  position: absolute;
+  border-radius: 0;
+  border-width: 2px;
+
+  overflow: hidden;
+  background-color: white;
 }
 
 .space-button-title {
