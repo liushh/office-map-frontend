@@ -19,11 +19,11 @@ class SpaceButton extends Component {
     let set = new Set([]);
     this.props.space.basic_units.forEach(unit => {
       set.add(unit.top + '-' + unit.left);
-        if (unit.left - this.minLeft > this.maxWidth) {
+        if (unit.left - this.minLeft + CONSTANTS.EMPTY_SPACE_SIZE > this.maxWidth) {
           this.maxWidth = unit.left - this.minLeft + CONSTANTS.EMPTY_SPACE_SIZE;
         }
-        if (unit.top - this.minTop > this.maxHeight) {
-          this.maxHeight = unit.top - this.minTop
+        if (unit.top - this.minTop + CONSTANTS.EMPTY_SPACE_SIZE> this.maxHeight) {
+          this.maxHeight = unit.top - this.minTop + CONSTANTS.EMPTY_SPACE_SIZE;
         }
     });
     return set;
@@ -84,15 +84,37 @@ class SpaceButton extends Component {
   }
 
   spaceTitle() {
-    const constStyle = {
-      width: this.maxWidth,
-      height: CONSTANTS.EMPTY_SPACE_SIZE,
-      top: this.minTop,
-      left: this.minLeft,
-    };
+    let constStyle = {};
+    let textRotationStyle = {};
+    if (this.maxHeight > this.maxWidth) {
+      constStyle = {
+        width: CONSTANTS.EMPTY_SPACE_SIZE,
+        height: this.maxHeight,
+        top: this.minTop,
+        left: this.minLeft
+      };
+      textRotationStyle = {
+        WebkitTransform: 'rotate(90deg)',
+        transformOrigin: '10px 10px',
+        height: CONSTANTS.EMPTY_SPACE_SIZE,
+        width: this.maxHeight,
+      }
+    } else {
+      constStyle = {
+        width: this.maxWidth,
+        height: CONSTANTS.EMPTY_SPACE_SIZE,
+        top: this.minTop,
+        left: this.minLeft,
+      };
+      textRotationStyle = {
+        width: this.maxWidth,
+        height: CONSTANTS.EMPTY_SPACE_SIZE,
+        fontSize: '12px'
+      }
+    }
     return (
-      <div className='space-button-title' style={constStyle}>
-      {this.props.space.owner_name}
+      <div className='space-button-title-container' style={constStyle}>
+        <p className='space-button-title-text' style={textRotationStyle}>{this.props.space.owner_name}</p>
       </div>
     );
   }

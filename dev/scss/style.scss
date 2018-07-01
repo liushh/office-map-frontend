@@ -92,13 +92,20 @@
   background-color: white;
 }
 
-.space-button-title {
+.space-button-title-container {
   position: absolute;
   pointer-events: none;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  font-size: 11px;
+
+  .space-button-title-text {
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 11px;
+    line-height: 11px;
+  }
 }
+
+
 
 .border-top {
   border-top: 1px;
