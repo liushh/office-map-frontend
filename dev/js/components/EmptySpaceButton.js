@@ -20,7 +20,7 @@ class EmptySpaceButton extends Component {
       <div className='map-item-button' style={constStyle}
            onClick={() => this.props.onButtonClicked(this.props.item)}></div>
     );
-  }  
+  }
 }
 
-export default EmptySpaceButton; 
+export default EmptySpaceButton;

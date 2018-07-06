@@ -8,7 +8,12 @@ import {
   unselectSpace,
   deleteSpace
 } from '../actions';
-import { SPACE_TYPES } from '../constants';
+import {
+  SPACE_TYPES,
+  EMPTY_DESK,
+  VISTITOR_DESK,
+  MEETING_ROOM_DESK
+} from '../constants';
 
 const spaceTypes = SPACE_TYPES.map(space_type => space_type.name);
 
@@ -47,6 +52,11 @@ class SpaceInfoPopover extends Component {
   }
 
   onSaveButtonClicked() {
+    if (this.props.selectedSpace.space_type === EMPTY_DESK) {
+      this.props.selectedSpace.owner_name = '';
+    } else if (this.props.selectedSpace.space_type === VISTITOR_DESK) {
+      this.props.selectedSpace.owner_name = 'VISTOR';
+    }
     this.props.updateSpace(this.props.selectedSpace);
     this.props.unselectSpace();
   }

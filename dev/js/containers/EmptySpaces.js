@@ -77,7 +77,7 @@ class EmptySpaces extends Component {
     var emptySpaceButtons = [];
     for (var i = 0; i < this.props.emptySpaces.length; i++) {
       var emptySpace = this.props.emptySpaces[i];
-      var backgroundColor = emptySpace.isSelected ? '#1E90FF' : '#C0C0C0';
+      var backgroundColor = emptySpace.isSelected ? '#F1948A' : '#78281F';
 
       emptySpaceButtons.push(
         <EmptySpaceButton item={emptySpace}

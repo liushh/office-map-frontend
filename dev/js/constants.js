@@ -6,25 +6,31 @@ export const WL2_OFFICE_ID = 'wl2_gdl';
 export const WL1_OFFICE_ID = 'wl1_gdl';
 export const SAN_FRANCISCO = 'san_francisco';
 
+export const EMPLOYEE_DESK = 'Employee Desk';
+export const EMPTY_DESK = 'Empty Desk';
+export const VISTITOR_DESK = 'Visitor Desk';
+export const MEETING_ROOM = 'Meeting Room';
+export const MEETING_ROOM_DESK = 'Meeting Room Desk';
+
 export const SPACE_TYPES = [
     {
-        name: 'Employee Desk',
-        backgroundColor: 'red'
+        name: EMPLOYEE_DESK,
+        backgroundColor: '#6DD1E1'
     },
     {
-        name: 'Empty Desk',
-        backgroundColor: 'yellow'
+        name: EMPTY_DESK,
+        backgroundColor: '#63CF6E'
     },
     {
-        name: 'Visitor Desk',
-        backgroundColor: 'blue'
+        name: VISTITOR_DESK,
+        backgroundColor: '#BE67EF'
     },
     {
-        name: 'Meeting Room'
+        name: MEETING_ROOM
     },
     {
-        name: 'Name Tag',
-        backgroundColor: 'purple'
+        name: MEETING_ROOM_DESK,
+        backgroundColor: '#BD6482'
     },
 ];
 

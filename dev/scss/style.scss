@@ -4,9 +4,9 @@
 .map-item-button {
   position: absolute;
   border-radius: 0;
-  border-color: #808080;
+  border-color: hsla(106, 0%, 87%, 0.2);
   border-width: 1px;
-  border-style: solid;
+  border-style: dotted;
 
   white-space: nowrap;
   overflow: hidden;
@@ -77,7 +77,8 @@
 .room {
   position: absolute;
   border-radius: 0;
-  border-width: 2px;
+  border-width: 3px !important;
+  border-color: #DAD2E5 !important;
   pointer-events: none;
   overflow: hidden;
   background-color: transparent;
@@ -93,6 +94,7 @@
 }
 
 .space-button-title-container {
+  padding: 2px;
   position: absolute;
   pointer-events: none;
 
