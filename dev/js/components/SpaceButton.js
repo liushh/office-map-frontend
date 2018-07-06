@@ -83,9 +83,10 @@ class SpaceButton extends Component {
     });
   }
 
-  spaceTitle() {
+  spaceTitle(space_type) {
     let constStyle = {};
     let textRotationStyle = {};
+    const isMeetingRoom = space_type === 'Meeting Room';
     if (this.maxHeight > this.maxWidth) {
       constStyle = {
         width: CONSTANTS.EMPTY_SPACE_SIZE,
@@ -104,14 +105,15 @@ class SpaceButton extends Component {
         width: this.maxWidth,
         height: CONSTANTS.EMPTY_SPACE_SIZE,
         top: this.minTop,
-        left: this.minLeft,
+        left: this.minLeft
       };
       textRotationStyle = {
         width: this.maxWidth,
-        height: CONSTANTS.EMPTY_SPACE_SIZE,
-        fontSize: '12px'
+        height: CONSTANTS.EMPTY_SPACE_SIZE
       }
     }
+    constStyle['color'] = isMeetingRoom ? 'white' : 'black';
+    textRotationStyle['fontSize'] = isMeetingRoom ? '20px' : '10px';
     return (
       <div className='space-button-title-container' style={constStyle}>
         <p className='space-button-title-text' style={textRotationStyle}>{this.props.space.owner_name}</p>
@@ -127,7 +129,7 @@ class SpaceButton extends Component {
     return (
       <div>
         {this.basicUnits()}
-        {this.spaceTitle()}
+        {this.spaceTitle(this.props.space.space_type)}
       </div>
     );
   }
