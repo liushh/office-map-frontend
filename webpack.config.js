@@ -6,6 +6,7 @@ module.exports = {
   context: __dirname,
 
   devServer: {
+    historyApiFallback: true,
     inline: true,
     contentBase: './src',
     port: 3000
@@ -28,7 +29,8 @@ module.exports = {
   },
   output: {
     path: __dirname + "/src",
-    filename: "js/scripts.min.js"
+    filename: "js/scripts.min.js",
+    publicPath: '/'
   },
   plugins: debug ? [] : [
     new webpack.optimize.DedupePlugin(),
