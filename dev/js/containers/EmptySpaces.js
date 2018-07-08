@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { CONSTANTS } from '../constants';
+import {
+  CONSTANTS,
+  EDITOR_WHITELIST,
+  AUTH0_USER_EMAIL_STORE_KEY
+} from '../constants';
 import {
   selectEmptySpace,
   unselectEmptySpace,
@@ -45,11 +49,24 @@ class EmptySpaces extends Component {
   }
 
   onButtonClicked(emptySpace) {
-    if (emptySpace.isSelected) {
-      this.props.unselectEmptySpace(emptySpace);
-    } else if (this.isNewSelectedEmeptySpaceConnected(emptySpace)) {
-      this.props.selectEmptySpace(emptySpace);
+    if (this.isMapEditor()) {
+      if (emptySpace.isSelected) {
+        this.props.unselectEmptySpace(emptySpace);
+      } else if (this.isNewSelectedEmeptySpaceConnected(emptySpace)) {
+        this.props.selectEmptySpace(emptySpace);
+      }
     }
+  }
+
+  isMapEditor() {
+    if (!this.currentUserEmail) {
+      this.setCurrentUserEmail();
+    }
+    return  this.currentUserEmail && EDITOR_WHITELIST.includes(this.currentUserEmail);
+  }
+
+  setCurrentUserEmail() {
+    this.currentUserEmail = localStorage.getItem(AUTH0_USER_EMAIL_STORE_KEY);
   }
 
   isNewSelectedEmeptySpaceConnected(newSelectedEmptySpace) {

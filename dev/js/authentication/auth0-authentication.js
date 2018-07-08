@@ -1,14 +1,17 @@
 import jwtDecode from 'jwt-decode';
 import Auth0Lock from 'auth0-lock';
+import auth0 from 'auth0-js';
 
 import Redirector from './redirector';
 import { client } from '../client';
+
 
 
 const AUTHENTICATED_EVENT = 'authenticated';
 const AUTHENTICATION_ERROR_EVENT = 'authorization_error';
 const RESPONSE_TYPE = 'token';
 const TOKEN_STORE_KEY = 'auth0_jwt_id';
+const AUTH0_USER_EMAIL_STORE_KEY = 'auth0_email';
 
 export default class Auth0Authentication {
   constructor(clientId, domain, redirectUrl, localStorage) {
@@ -17,6 +20,15 @@ export default class Auth0Authentication {
     const options = this._buildLockOptions(redirectUrl);
     this.lock = new Auth0Lock(clientId, domain, options);
     this.redirector = new Redirector();
+    this.webAuth = new auth0.WebAuth({
+      domain: domain,
+      clientID: clientId,
+      redirectUri: redirectUrl,
+      audience: 'https://' + domain + '/userinfo',
+      responseType: 'token id_token',
+      scope: 'openid profile',
+      leeway: 60
+    });
     this._setUpEventListeners();
 
     client.defaults.headers.common.Authorization = this.getToken();
@@ -30,6 +42,7 @@ export default class Auth0Authentication {
     this.lock.on(AUTHENTICATED_EVENT, result => {
       const jwt = result.idToken;
       this.setToken(jwt);
+      this._fetchUserProfile(result.accessToken);
       this.redirector.onAuthenticationSucceed();
     });
   }
@@ -37,6 +50,15 @@ export default class Auth0Authentication {
   setToken(idToken) {
     client.defaults.headers.common.Authorization = idToken;
     this.localStorage.setItem(TOKEN_STORE_KEY, idToken);
+  }
+
+  _fetchUserProfile(idToken) {
+    const localStorage = this.localStorage;
+    this.webAuth.client.userInfo(idToken, function(err, profile) {
+      if (profile) {
+        localStorage.setItem(AUTH0_USER_EMAIL_STORE_KEY, profile.email);
+      }
+    });
   }
 
   showLoginDialog() {

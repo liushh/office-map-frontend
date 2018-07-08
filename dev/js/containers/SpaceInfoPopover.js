@@ -12,7 +12,8 @@ import {
   SPACE_TYPES,
   EMPTY_DESK,
   VISTITOR_DESK,
-  MEETING_ROOM_DESK
+  EDITOR_WHITELIST,
+  AUTH0_USER_EMAIL_STORE_KEY
 } from '../constants';
 
 const spaceTypes = SPACE_TYPES.map(space_type => space_type.name);
@@ -22,7 +23,7 @@ const teams = ['Engineering', 'UX', 'Marketing', 'Finance', 'None']; // TODO: fe
 class SpaceInfoPopover extends Component {
 
   componentWillMount() {
-     document.addEventListener("keydown", (event) => this.handleKeydown(event), false);
+    document.addEventListener("keydown", (event) => this.handleKeydown(event), false);
   }
 
   componentWillUnmount() {
@@ -81,8 +82,20 @@ class SpaceInfoPopover extends Component {
     this.props.selectedSpace.project = event.target.value;
   }
 
+
+  setCurrentUserEmail() {
+    this.currentUserEmail = localStorage.getItem(AUTH0_USER_EMAIL_STORE_KEY);
+  }
+
+  isMapEditor() {
+    if (!this.currentUserEmail) {
+      this.setCurrentUserEmail();
+    }
+    return  this.currentUserEmail && EDITOR_WHITELIST.includes(this.currentUserEmail);
+  }
+
   render() {
-    if (this.props.selectedSpace === null) {
+    if (this.props.selectedSpace === null || !this.isMapEditor()) {
       return null;
     }
 
