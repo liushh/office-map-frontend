@@ -45,7 +45,6 @@
   @extend .inline-block;
   @extend .margin-8;
 
-  position: absolute;
   width: 190px;
 }
 
@@ -64,6 +63,27 @@
   width: 190px;
   height: 23px;
   font-size: 16px;
+}
+
+.available-space-indicators {
+  @extend .inline-block;
+  @extend .margin-8;
+
+  width: 400px;
+}
+
+.available-space-indicator {
+  @extend .inline-block;
+  @extend .margin-left-24;
+  @extend .margin-bottom-0;
+
+  width: 100px;
+
+  .indicator-label {
+    position: absolute;
+    margin-left: 2px;
+    margin-top: 1px;
+  }
 }
 
 .space-button {
@@ -89,7 +109,7 @@
   border-width: 2px;
 
   overflow: hidden;
-  background-color: white;
+  background-color: #63359A;
 }
 
 .space-button-title-container {

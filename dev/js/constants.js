@@ -15,13 +15,20 @@ export const MEETING_ROOM_DESK = 'Meeting Room Desk';
 export const AUTH0_USER_EMAIL_STORE_KEY = 'auth0_email';
 export const EDITOR_WHITELIST = [
     'liusha@wizeline.com',
-    'hlswh1021@gmail.com',
+
     'gabriela@wizeline.com',
-    'ericka.veliz@wizeline.com',
     'vanessa.diaz@wizeline.com',
     'karina.gutierrez@wizeline.com',
     'raul.lopez@wizeline.com',
-    'cindy@startupgdl.com'
+    'cindy@startupgdl.com',
+    'wendolyn.herrera@wizeline.com',
+
+    'ericka.veliz@wizeline.com',
+    'tara@wizeline.com',
+    'itzel.cortes@wizeline.com',
+    'gina.martinez@wizeline.com',
+    'myan.hoang@wizeline.com',
+    'anh.le@wizeline.com'
 ];
 
 export const SPACE_TYPES = [
