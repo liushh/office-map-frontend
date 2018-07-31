@@ -6,8 +6,9 @@ import EditRoomButton from '../containers/EditRoomButton';
 import AvailableSpaceIndicators from '../components/AvailableSpaceIndicator';
 
 const Header = () => (
-    <div>
+    <div className='header'>
         <OfficeSelectionButtons />
+        <EditRoomButton />
         <AvailableSpaceIndicators />
     </div>
 );

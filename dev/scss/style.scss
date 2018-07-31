@@ -41,6 +41,10 @@
   }
 }
 
+.header {
+  display: flex;
+}
+
 .office-dropdown {
   @extend .inline-block;
   @extend .margin-8;
@@ -50,18 +54,16 @@
 
 .edit-room-button {
   @extend .inline-block;
-  @extend .margin-top-8;
-  @extend .padding-top-8;
+  @extend .margin-8;
 
   text-align: center;
-  margin-left: 208px;
+  padding-top: 4px;
   border-radius: 1px;
   border-color: #ccc;
   border-width: 1px;
   border-style: solid;
-  position: absolute;
-  width: 190px;
-  height: 23px;
+  width: 100px;
+  height: 32px;
   font-size: 16px;
 }
 
