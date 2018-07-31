@@ -37,6 +37,11 @@ class SpaceAPI {
     const url = `/space/${selectedSpaceId}`;
     return client.delete(url).then(response => response.data);
   }
+
+  getAvailableSpaceCount(officeId) {
+    const url = `/available_space/${officeId}`;
+    return client.get(url).then(response => response.data);
+  }
 }
 
 export default SpaceAPI;

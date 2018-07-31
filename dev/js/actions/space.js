@@ -15,6 +15,9 @@ const UPDATE_SPACE_FAIL = 'UPDATE_SPACE_FAIL';
 const DELETE_SPACE_SUCCESS = 'DELETE_SPACE_SUCCESS';
 const DELETE_SPACE_FAIL = 'DELETE_SPACE_FAIL';
 
+const GET_AVAILABLE_SPACE_COUNT_SUCCESS = 'GET_AVAILABLE_SPACE_COUNT_SUCCESS';
+const GET_AVAILABLE_SPACE_COUNT_FAIL = 'GET_AVAILABLE_SPACE_COUNT_FAIL';
+
 const createSpaceSuccess = newSpaces => {
   return {
     type: CREATE_SPACE_SUCCESS,
@@ -121,6 +124,30 @@ const deleteSpace = (officeId, selectedSpaceId) => {
   };
 };
 
+
+const getAvalaibleSpaceCountSuccess = availableSapceCount => {
+  return {
+    type: GET_AVAILABLE_SPACE_COUNT_SUCCESS,
+    payload: availableSapceCount
+  };
+};
+
+const getAvalaibleSpaceCountFail = errorMessage => {
+  return {
+    type: GET_AVAILABLE_SPACE_COUNT_FAIL,
+    payload: errorMessage
+  };
+};
+
+const getAvailableSpaceCount = officeId => {
+  return dispatch => {
+    const api = new SpaceAPI();
+    return api.getAvailableSpaceCount(officeId)
+      .then(spaces => dispatch(getAvalaibleSpaceCountSuccess(spaces)))
+      .catch(error => dispatch(getAvalaibleSpaceCountFail(error.message)));
+  };
+};
+
 export {
   CREATE_SPACE_SUCCESS,
   CREATE_SPACE_FAIL,
@@ -150,5 +177,11 @@ export {
   DELETE_SPACE_FAIL,
   deleteSpace,
   deleteSpaceSuccess,
-  deleteSpaceFail
+  deleteSpaceFail,
+
+  GET_AVAILABLE_SPACE_COUNT_SUCCESS,
+  GET_AVAILABLE_SPACE_COUNT_FAIL,
+  getAvailableSpaceCount,
+  getAvalaibleSpaceCountSuccess,
+  getAvalaibleSpaceCountFail
 };

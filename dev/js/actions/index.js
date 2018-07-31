@@ -43,6 +43,12 @@ import {
   updateSpace,
   updateSpaceSuccess,
   updateSpaceFail,
+
+  GET_AVAILABLE_SPACE_COUNT_SUCCESS,
+  GET_AVAILABLE_SPACE_COUNT_FAIL,
+  getAvailableSpaceCount,
+  getAvalaibleSpaceCountSuccess,
+  getAvalaibleSpaceCountFail
 } from './space';
 
 export {
@@ -83,5 +89,11 @@ export {
   DELETE_SPACE_FAIL,
   deleteSpace,
   deleteSpaceSuccess,
-  deleteSpaceFail
+  deleteSpaceFail,
+
+  GET_AVAILABLE_SPACE_COUNT_SUCCESS,
+  GET_AVAILABLE_SPACE_COUNT_FAIL,
+  getAvailableSpaceCount,
+  getAvalaibleSpaceCountSuccess,
+  getAvalaibleSpaceCountFail
 }

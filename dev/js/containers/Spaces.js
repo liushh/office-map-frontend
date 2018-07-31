@@ -51,7 +51,7 @@ function mapStateToProps(state) {
 }
 
 function matchDispatchToProps(dispatch) {
-  var actionCreators = {
+  let actionCreators = {
     getSpaces: getSpaces,
     selectSpace: selectSpace
   };
