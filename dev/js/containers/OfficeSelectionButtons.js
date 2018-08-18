@@ -10,11 +10,14 @@ class OfficeSelectionButtons extends Component {
   constructor(props) {
     super(props);
 
-    this.office_names = OFFICE_STATES.map(office => office.name);
     this.offices_map = {};
-    this.offices_map[OFFICE_STATES[0].name] = OFFICE_STATES[0];
-    this.offices_map[OFFICE_STATES[1].name] = OFFICE_STATES[1];
-    this.offices_map[OFFICE_STATES[2].name] = OFFICE_STATES[2];
+    this.office_names = [];
+
+    for (const [ _, office ] of Object.entries(OFFICE_STATES)) {
+      this.offices_map[office.name] = office;
+      this.office_names.push(office.name);
+    }
+
   }
 
   selectOffce(option) {

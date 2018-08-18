@@ -1,21 +1,16 @@
 import {OFFICE_STATES} from '../constants';
-import {WL1_OFFICE_ID, WL2_OFFICE_ID, SAN_FRANCISCO} from '../constants';
+import {GDL_1_ID, GDL_2_ID, SAN_FRANCISCO_ID} from '../constants';
 
 import {
   setSelectedOfficeId,
   getSelectedOfficeId
 } from '../utils/local-storage-util'
 
-var selectedOfficeId = getSelectedOfficeId();
-var initialState = OFFICE_STATES[0];
+const selectedOfficeId = getSelectedOfficeId();
+const initialState = OFFICE_STATES[selectedOfficeId];
 
-if (selectedOfficeId === WL2_OFFICE_ID) {
-  initialState = OFFICE_STATES[1];
-} else if (selectedOfficeId === SAN_FRANCISCO) {
-    initialState = OFFICE_STATES[2];
-}
 if (selectedOfficeId === null) {
-  setSelectedOfficeId(WL1_OFFICE_ID)
+  setSelectedOfficeId(GDL_1_ID)
 }
 
 export default function(state=initialState, action) {

@@ -6,7 +6,6 @@ import {
     VISTITOR_DESK,
     SPACE_TYPES
 } from '../constants';
-import availableSpaceCountReducer from '../reducers/available-space-count-reducer';
 
 const spaceTypeTobackgroundColor = {};
 SPACE_TYPES.forEach(spaceType => {
@@ -16,19 +15,25 @@ SPACE_TYPES.forEach(spaceType => {
 const AvailableSpaceIndicator = ({
     space,
     spaceType
-}) => (
-    <div className='available-space-indicator'>
-        {space.available} available
-        <div className='indicator-label'>{spaceType}</div>
-        <Line
-            percent={((space.available / space.total) * 100).toFixed(2)}
-            strokeWidth="15"
-            strokeLinecap="square"
-            trailColor='grey'
-            trailWidth="15"
-            strokeColor={spaceTypeTobackgroundColor[spaceType]} />
-    </div>
-);
+}) => {
+    let percent = 0;
+    if (space.available && space.total) {
+        percent = ((space.available / space.total) * 100).toFixed(2);
+    }
+    return (
+        <div className='available-space-indicator'>
+            {space.available} available
+            <div className='indicator-label'>{spaceType}</div>
+            <Line
+                percent={percent}
+                strokeWidth="15"
+                strokeLinecap="square"
+                trailColor='grey'
+                trailWidth="15"
+                strokeColor={spaceTypeTobackgroundColor[spaceType]} />
+        </div>
+    )
+};
 
 const AvailableSpaceIndicators = ({ availableSpaceCount }) => (
     <div className='available-space-indicators'>
