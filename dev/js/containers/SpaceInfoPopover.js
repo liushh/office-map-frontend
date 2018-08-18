@@ -121,7 +121,7 @@ class SpaceInfoPopover extends Component {
       marginBottom: 15
     };
     const buttonStyle = {
-      marginRight: 20
+      marginRight: 8
     };
 
     return (
@@ -161,7 +161,7 @@ class SpaceInfoPopover extends Component {
 
         <button style={buttonStyle} onClick={() => this.onDeleteButtonClicked()}>Delete</button>
         <button style={buttonStyle} onClick={() => this.onSaveButtonClicked()}>Save</button>
-        <button onClick={() => this.onCancelButtonClicked()}>Cancel</button>
+        <button style={buttonStyle} onClick={() => this.onCancelButtonClicked()}>Cancel</button>
       </div>
     );
   }
