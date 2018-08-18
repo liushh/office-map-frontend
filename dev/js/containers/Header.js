@@ -41,8 +41,6 @@ class Header extends Component {
   }
 
 function mapStateToProps(state) {
-  console.log('state.availableSpaceCount = ', state.availableSpaceCount);
-  console.log('state.selectedOffice = ', state.selectedOffice);
   return {
     selectedOffice: state.selectedOffice,
     availableSpaceCount: state.availableSpaceCount

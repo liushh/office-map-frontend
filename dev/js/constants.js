@@ -20,7 +20,6 @@ export const EDITOR_WHITELIST = [
     'vanessa.diaz@wizeline.com',
     'karina.gutierrez@wizeline.com',
     'raul.lopez@wizeline.com',
-    'cindy@startupgdl.com',
     'wendolyn.herrera@wizeline.com',
 
     'ericka.veliz@wizeline.com',
@@ -28,7 +27,11 @@ export const EDITOR_WHITELIST = [
     'itzel.cortes@wizeline.com',
     'gina.martinez@wizeline.com',
     'myan.hoang@wizeline.com',
-    'anh.le@wizeline.com'
+    'anh.le@wizeline.com',
+
+    'cindy@startupgdl.com',
+    'santiago@startupgdl.com',
+    'sofia@startupgdl.com'
 ];
 
 export const SPACE_TYPES = [
