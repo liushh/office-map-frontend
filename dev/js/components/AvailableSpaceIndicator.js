@@ -6,6 +6,7 @@ import {
     VISTITOR_DESK,
     SPACE_TYPES
 } from '../constants';
+import availableSpaceCountReducer from '../reducers/available-space-count-reducer';
 
 const spaceTypeTobackgroundColor = {};
 SPACE_TYPES.forEach(spaceType => {
@@ -13,15 +14,14 @@ SPACE_TYPES.forEach(spaceType => {
 });
 
 const AvailableSpaceIndicator = ({
-    availableCount,
-    spaceType,
-    color
+    space,
+    spaceType
 }) => (
     <div className='available-space-indicator'>
-        {availableCount} available
+        {space.available} available
         <div className='indicator-label'>{spaceType}</div>
         <Line
-            percent="90"
+            percent={((space.available / space.total) * 100).toFixed(2)}
             strokeWidth="15"
             strokeLinecap="square"
             trailColor='grey'
@@ -30,16 +30,16 @@ const AvailableSpaceIndicator = ({
     </div>
 );
 
-const AvailableSpaceIndicators = () => (
+const AvailableSpaceIndicators = ({ availableSpaceCount }) => (
     <div className='available-space-indicators'>
         <AvailableSpaceIndicator
-            availableCount={10}
+            space={availableSpaceCount.employee_desk}
             spaceType={EMPLOYEE_DESK}/>
         <AvailableSpaceIndicator
-            availableCount={15}
+            space={availableSpaceCount.empty_desk}
             spaceType={EMPTY_DESK}/>
         <AvailableSpaceIndicator
-            availableCount={24}
+            space={availableSpaceCount.visitor_desk}
             spaceType={VISTITOR_DESK}/>
 
     </div>

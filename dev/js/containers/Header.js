@@ -14,22 +14,37 @@ class Header extends Component {
     }
 
     componentWillMount() {
-        this.props.getAvailableSpaceCount('san_francisco')
+        this.props.getAvailableSpaceCount(this.props.selectedOffice.id);
+    }
+
+    componentWillReceiveProps(nextProps) {
+      if (this.props.selectedOffice.id !== nextProps.selectedOffice.id) {
+        this.props.getAvailableSpaceCount(nextProps.selectedOffice.id);
+      }
+    }
+
+    getAvailableSpaceIndicators() {
+      if (this.props.availableSpaceCount) {
+        return <AvailableSpaceIndicators availableSpaceCount={this.props.availableSpaceCount} />
+      }
     }
 
     render() {
       return (
         <div className='header'>
             <OfficeSelectionButtons />
-            <EditRoomButton availableSpaceCount={this.props.availableSpaceCount} />
-            <AvailableSpaceIndicators />
+            <EditRoomButton />
+            {this.getAvailableSpaceIndicators()}
         </div>
       );
     }
   }
 
 function mapStateToProps(state) {
+  console.log('state.availableSpaceCount = ', state.availableSpaceCount);
+  console.log('state.selectedOffice = ', state.selectedOffice);
   return {
+    selectedOffice: state.selectedOffice,
     availableSpaceCount: state.availableSpaceCount
   };
 }
